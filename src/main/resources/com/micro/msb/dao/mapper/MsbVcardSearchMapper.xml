@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbVcardResult" type="MsbVcardBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="vcard" column="vcard"/>
+	</resultMap>
+
+	<select id="countMsbVcardSearch" parameterType="com.micro.msb.beans.MsbVcardSearchBean" resultType="Integer">
+		select count(*) from msb_vcard
+		<where>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="vcard!=null">
+				vcard like #{vcard}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbVcard" parameterType="com.micro.msb.beans.MsbVcardSearchBean" resultMap="msbVcardResult">         
+		select * from msb_vcard  
+		<where>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="vcard!=null">
+				vcard like #{vcard}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbMucaffiliationDeleteResult" type="MsbMucaffiliationDeleteBean">
+		<result property="roomid" column="roomID"/>
+		<result property="jid" column="jid"/>
+		<result property="affiliation" column="affiliation"/>
+	</resultMap>
+	
+	<delete id="deleteMsbMucaffiliation" parameterType="com.micro.msb.beans.MsbMucaffiliationDeleteBean">
+		delete from msb_mucaffiliation where roomID = #{roomid};
+	</delete>
+
+</mapper>

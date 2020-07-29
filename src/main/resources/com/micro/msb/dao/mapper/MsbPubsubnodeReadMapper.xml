@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPubsubnodeReadResult" type="MsbPubsubnodeReadBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="nodeid" column="nodeID"/>
+		<result property="leaf" column="leaf"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="modificationdate" column="modificationDate"/>
+		<result property="parent" column="parent"/>
+		<result property="deliverpayloads" column="deliverPayloads"/>
+		<result property="maxpayloadsize" column="maxPayloadSize"/>
+		<result property="persistitems" column="persistItems"/>
+		<result property="maxitems" column="maxItems"/>
+		<result property="notifyconfigchanges" column="notifyConfigChanges"/>
+		<result property="notifydelete" column="notifyDelete"/>
+		<result property="notifyretract" column="notifyRetract"/>
+		<result property="presencebased" column="presenceBased"/>
+		<result property="senditemsubscribe" column="sendItemSubscribe"/>
+		<result property="publishermodel" column="publisherModel"/>
+		<result property="subscriptionenabled" column="subscriptionEnabled"/>
+		<result property="configsubscription" column="configSubscription"/>
+		<result property="accessmodel" column="accessModel"/>
+		<result property="payloadtype" column="payloadType"/>
+		<result property="bodyxslt" column="bodyXSLT"/>
+		<result property="dataformxslt" column="dataformXSLT"/>
+		<result property="creator" column="creator"/>
+		<result property="description" column="description"/>
+		<result property="language" column="language"/>
+		<result property="name" column="name"/>
+		<result property="replypolicy" column="replyPolicy"/>
+		<result property="associationpolicy" column="associationPolicy"/>
+		<result property="maxleafnodes" column="maxLeafNodes"/>
+		<collection property="msbPubsubaffiliation" column="serviceID" select="readMsbPubsubnodeMsbPubsubaffiliation"/>
+		<collection property="msbPubsubitem" column="serviceID" select="readMsbPubsubnodeMsbPubsubitem"/>
+		<collection property="msbPubsubnodegroups" column="serviceID" select="readMsbPubsubnodeMsbPubsubnodegroups"/>
+		<collection property="msbPubsubsubscriber" column="serviceID" select="readMsbPubsubnodeMsbPubsubsubscriber"/>
+		<collection property="msbPubsubsubscription" column="serviceID" select="readMsbPubsubnodeMsbPubsubsubscription"/>
+	</resultMap>
+	
+	<select id="readMsbPubsubnode" parameterType="com.micro.msb.beans.MsbPubsubnodeReadBean" resultMap="msbPubsubnodeReadResult">         
+		select * from msb_pubsubnode where serviceID = #{serviceid};
+	</select>
+
+	<select id="readMsbPubsubnodeMsbPubsubaffiliation" parameterType="String" resultMap="msbPubsubaffiliationResult">         
+		select * from msb_pubsubaffiliation where serviceID = #{serviceid};
+	</select>
+  
+	<select id="readMsbPubsubnodeMsbPubsubitem" parameterType="String" resultMap="msbPubsubitemResult">         
+		select * from msb_pubsubitem where serviceID = #{serviceid};
+	</select>
+  
+	<select id="readMsbPubsubnodeMsbPubsubnodegroups" parameterType="String" resultMap="msbPubsubnodegroupsResult">         
+		select * from msb_pubsubnodegroups where serviceID = #{serviceid};
+	</select>
+  
+	<select id="readMsbPubsubnodeMsbPubsubsubscriber" parameterType="String" resultMap="msbPubsubsubscriberResult">         
+		select * from msb_pubsubsubscriber where serviceID = #{serviceid};
+	</select>
+  
+	<select id="readMsbPubsubnodeMsbPubsubsubscription" parameterType="String" resultMap="msbPubsubsubscriptionResult">         
+		select * from msb_pubsubsubscription where serviceID = #{serviceid};
+	</select>
+  
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPubsubsubscriptionDeleteResult" type="MsbPubsubsubscriptionDeleteBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="nodeid" column="nodeID"/>
+		<result property="id" column="id"/>
+		<result property="jid" column="jid"/>
+		<result property="owner" column="owner"/>
+		<result property="state" column="state"/>
+		<result property="deliver" column="deliver"/>
+		<result property="digest" column="digest"/>
+		<result property="digestFrequency" column="digest_frequency"/>
+		<result property="expire" column="expire"/>
+		<result property="includebody" column="includeBody"/>
+		<result property="showvalues" column="showValues"/>
+		<result property="subscriptiontype" column="subscriptionType"/>
+		<result property="subscriptiondepth" column="subscriptionDepth"/>
+		<result property="keyword" column="keyword"/>
+	</resultMap>
+	
+	<delete id="deleteMsbPubsubsubscription" parameterType="com.micro.msb.beans.MsbPubsubsubscriptionDeleteBean">
+		delete from msb_pubsubsubscription where serviceID = #{serviceid};
+	</delete>
+
+</mapper>

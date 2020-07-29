@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbSubscribertypeNewResult" type="MsbSubscribertypeNewBean">
+		<result property="subtype" column="subtype"/>
+		<result property="description" column="description"/>
+	</resultMap>
+	
+	<insert id="newMsbSubscribertype" parameterType="com.micro.msb.beans.MsbSubscribertypeNewBean">
+		insert into msb_subscribertype(subtype,description) 
+		values (#{subtype},#{description});
+	</insert>
+
+</mapper>

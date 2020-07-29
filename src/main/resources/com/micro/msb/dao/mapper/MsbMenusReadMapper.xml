@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbMenusReadResult" type="MsbMenusReadBean">
+		<result property="name" column="name"/>
+		<result property="link" column="link"/>
+		<result property="display" column="display"/>
+	</resultMap>
+	
+	<select id="readMsbMenus" parameterType="com.micro.msb.beans.MsbMenusReadBean" resultMap="msbMenusReadResult">         
+		select * from msb_menus where name = #{name};
+	</select>
+
+</mapper>

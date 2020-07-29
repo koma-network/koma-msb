@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbAuthoritiesNewResult" type="MsbAuthoritiesNewBean">
+		<result property="username" column="username"/>
+		<result property="authority" column="authority"/>
+	</resultMap>
+	
+	<insert id="newMsbAuthorities" parameterType="com.micro.msb.beans.MsbAuthoritiesNewBean">
+		insert into msb_authorities(username,authority) 
+		values (#{username},#{authority});
+	</insert>
+
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPropertyNewResult" type="MsbPropertyNewBean">
+		<result property="name" column="name"/>
+		<result property="propvalue" column="propValue"/>
+	</resultMap>
+	
+	<insert id="newMsbProperty" parameterType="com.micro.msb.beans.MsbPropertyNewBean">
+		insert into msb_property(name,propValue) 
+		values (#{name},#{propvalue});
+	</insert>
+
+</mapper>

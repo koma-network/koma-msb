@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbAccountResult" type="MsbAccountBean">
+		<result property="username" column="username"/>
+		<result property="password" column="password"/>
+		<result property="account" column="account"/>
+		<result property="email" column="email"/>
+		<result property="phone" column="phone"/>
+		<result property="mobile" column="mobile"/>
+		<result property="enabled" column="enabled"/>
+		<result property="token" column="token"/>
+	</resultMap>
+
+	<select id="countMsbAccountSearch" parameterType="com.micro.msb.beans.MsbAccountSearchBean" resultType="Integer">
+		select count(*) from msb_account
+		<where>
+			<if test="username!=null">
+				username like #{username}
+			</if>
+			<if test="password!=null">
+				password like #{password}
+			</if>
+			<if test="account!=null">
+				account like #{account}
+			</if>
+			<if test="email!=null">
+				email like #{email}
+			</if>
+			<if test="phone!=null">
+				phone like #{phone}
+			</if>
+			<if test="mobile!=null">
+				mobile like #{mobile}
+			</if>
+			<if test="enabled!=null">
+				enabled like #{enabled}
+			</if>
+			<if test="token!=null">
+				token like #{token}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbAccount" parameterType="com.micro.msb.beans.MsbAccountSearchBean" resultMap="msbAccountResult">         
+		select * from msb_account  
+		<where>
+			<if test="username!=null">
+				username like #{username}
+			</if>
+			<if test="password!=null">
+				password like #{password}
+			</if>
+			<if test="account!=null">
+				account like #{account}
+			</if>
+			<if test="email!=null">
+				email like #{email}
+			</if>
+			<if test="phone!=null">
+				phone like #{phone}
+			</if>
+			<if test="mobile!=null">
+				mobile like #{mobile}
+			</if>
+			<if test="enabled!=null">
+				enabled like #{enabled}
+			</if>
+			<if test="token!=null">
+				token like #{token}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

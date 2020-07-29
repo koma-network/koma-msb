@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPubsubsubscriberWriteResult" type="MsbPubsubsubscriberWriteBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="nodeid" column="nodeID"/>
+		<result property="jid" column="jid"/>
+		<result property="associationtype" column="associationType"/>
+	</resultMap>
+	
+	<update id="writeMsbPubsubsubscriber" parameterType="com.micro.msb.beans.MsbPubsubsubscriberWriteBean">
+		update msb_pubsubsubscriber set serviceID = #{serviceid},
+		nodeID = #{nodeid},
+		jid = #{jid},
+		associationType = #{associationtype} where serviceID = #{serviceid};
+	</update>
+
+</mapper>

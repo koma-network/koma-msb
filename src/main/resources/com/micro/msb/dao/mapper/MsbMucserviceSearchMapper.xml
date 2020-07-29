@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbMucserviceResult" type="MsbMucserviceBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="domain" column="domain"/>
+		<result property="subdomain" column="subdomain"/>
+		<result property="description" column="description"/>
+		<result property="ishidden" column="isHidden"/>
+	</resultMap>
+
+	<select id="countMsbMucserviceSearch" parameterType="com.micro.msb.beans.MsbMucserviceSearchBean" resultType="Integer">
+		select count(*) from msb_mucservice
+		<where>
+			<if test="serviceid!=null">
+				serviceID like #{serviceid}
+			</if>
+			<if test="domain!=null">
+				domain like #{domain}
+			</if>
+			<if test="subdomain!=null">
+				subdomain like #{subdomain}
+			</if>
+			<if test="description!=null">
+				description like #{description}
+			</if>
+			<if test="ishidden!=null">
+				isHidden like #{ishidden}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbMucservice" parameterType="com.micro.msb.beans.MsbMucserviceSearchBean" resultMap="msbMucserviceResult">         
+		select * from msb_mucservice  
+		<where>
+			<if test="serviceid!=null">
+				serviceID like #{serviceid}
+			</if>
+			<if test="domain!=null">
+				domain like #{domain}
+			</if>
+			<if test="subdomain!=null">
+				subdomain like #{subdomain}
+			</if>
+			<if test="description!=null">
+				description like #{description}
+			</if>
+			<if test="ishidden!=null">
+				isHidden like #{ishidden}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbTrafficResult" type="MsbTrafficBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="account" column="account"/>
+		<result property="from" column="from"/>
+		<result property="to" column="to"/>
+		<result property="counter" column="counter"/>
+		<result property="type" column="type"/>
+		<result property="lastUpdate" column="last_update"/>
+		<result property="status" column="status"/>
+	</resultMap>
+
+	<select id="countMsbTrafficSearch" parameterType="com.micro.msb.beans.MsbTrafficSearchBean" resultType="Integer">
+		select count(*) from msb_traffic
+		<where>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="account!=null">
+				account like #{account}
+			</if>
+			<if test="from!=null">
+				from like #{from}
+			</if>
+			<if test="to!=null">
+				to like #{to}
+			</if>
+			<if test="counter!=null">
+				counter like #{counter}
+			</if>
+			<if test="type!=null">
+				type like #{type}
+			</if>
+			<if test="lastUpdate!=null">
+				last_update like #{lastUpdate}
+			</if>
+			<if test="status!=null">
+				status like #{status}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbTraffic" parameterType="com.micro.msb.beans.MsbTrafficSearchBean" resultMap="msbTrafficResult">         
+		select * from msb_traffic  
+		<where>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="account!=null">
+				account like #{account}
+			</if>
+			<if test="from!=null">
+				from like #{from}
+			</if>
+			<if test="to!=null">
+				to like #{to}
+			</if>
+			<if test="counter!=null">
+				counter like #{counter}
+			</if>
+			<if test="type!=null">
+				type like #{type}
+			</if>
+			<if test="lastUpdate!=null">
+				last_update like #{lastUpdate}
+			</if>
+			<if test="status!=null">
+				status like #{status}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

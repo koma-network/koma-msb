@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbPropertyResult" type="MsbPropertyBean">
+		<result property="name" column="name"/>
+		<result property="propvalue" column="propValue"/>
+	</resultMap>
+
+	<select id="countMsbPropertySearch" parameterType="com.micro.msb.beans.MsbPropertySearchBean" resultType="Integer">
+		select count(*) from msb_property
+		<where>
+			<if test="name!=null">
+				name like #{name}
+			</if>
+			<if test="propvalue!=null">
+				propValue like #{propvalue}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbProperty" parameterType="com.micro.msb.beans.MsbPropertySearchBean" resultMap="msbPropertyResult">         
+		select * from msb_property  
+		<where>
+			<if test="name!=null">
+				name like #{name}
+			</if>
+			<if test="propvalue!=null">
+				propValue like #{propvalue}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPubsubnodegroupsNewResult" type="MsbPubsubnodegroupsNewBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="nodeid" column="nodeID"/>
+		<result property="rostergroup" column="rosterGroup"/>
+	</resultMap>
+	
+	<insert id="newMsbPubsubnodegroups" parameterType="com.micro.msb.beans.MsbPubsubnodegroupsNewBean">
+		insert into msb_pubsubnodegroups(serviceID,nodeID,rosterGroup) 
+		values (#{serviceid},#{nodeid},#{rostergroup});
+	</insert>
+
+</mapper>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPubsubnodeWriteResult" type="MsbPubsubnodeWriteBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="nodeid" column="nodeID"/>
+		<result property="leaf" column="leaf"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="modificationdate" column="modificationDate"/>
+		<result property="parent" column="parent"/>
+		<result property="deliverpayloads" column="deliverPayloads"/>
+		<result property="maxpayloadsize" column="maxPayloadSize"/>
+		<result property="persistitems" column="persistItems"/>
+		<result property="maxitems" column="maxItems"/>
+		<result property="notifyconfigchanges" column="notifyConfigChanges"/>
+		<result property="notifydelete" column="notifyDelete"/>
+		<result property="notifyretract" column="notifyRetract"/>
+		<result property="presencebased" column="presenceBased"/>
+		<result property="senditemsubscribe" column="sendItemSubscribe"/>
+		<result property="publishermodel" column="publisherModel"/>
+		<result property="subscriptionenabled" column="subscriptionEnabled"/>
+		<result property="configsubscription" column="configSubscription"/>
+		<result property="accessmodel" column="accessModel"/>
+		<result property="payloadtype" column="payloadType"/>
+		<result property="bodyxslt" column="bodyXSLT"/>
+		<result property="dataformxslt" column="dataformXSLT"/>
+		<result property="creator" column="creator"/>
+		<result property="description" column="description"/>
+		<result property="language" column="language"/>
+		<result property="name" column="name"/>
+		<result property="replypolicy" column="replyPolicy"/>
+		<result property="associationpolicy" column="associationPolicy"/>
+		<result property="maxleafnodes" column="maxLeafNodes"/>
+	</resultMap>
+	
+	<update id="writeMsbPubsubnode" parameterType="com.micro.msb.beans.MsbPubsubnodeWriteBean">
+		update msb_pubsubnode set serviceID = #{serviceid},
+		nodeID = #{nodeid},
+		leaf = #{leaf},
+		creationDate = #{creationdate},
+		modificationDate = #{modificationdate},
+		parent = #{parent},
+		deliverPayloads = #{deliverpayloads},
+		maxPayloadSize = #{maxpayloadsize},
+		persistItems = #{persistitems},
+		maxItems = #{maxitems},
+		notifyConfigChanges = #{notifyconfigchanges},
+		notifyDelete = #{notifydelete},
+		notifyRetract = #{notifyretract},
+		presenceBased = #{presencebased},
+		sendItemSubscribe = #{senditemsubscribe},
+		publisherModel = #{publishermodel},
+		subscriptionEnabled = #{subscriptionenabled},
+		configSubscription = #{configsubscription},
+		accessModel = #{accessmodel},
+		payloadType = #{payloadtype},
+		bodyXSLT = #{bodyxslt},
+		dataformXSLT = #{dataformxslt},
+		creator = #{creator},
+		description = #{description},
+		language = #{language},
+		name = #{name},
+		replyPolicy = #{replypolicy},
+		associationPolicy = #{associationpolicy},
+		maxLeafNodes = #{maxleafnodes} where serviceID = #{serviceid};
+	</update>
+
+</mapper>

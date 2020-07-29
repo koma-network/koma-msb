@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbSubscriberNewResult" type="MsbSubscriberNewBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="password" column="password"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="modificationdate" column="modificationDate"/>
+		<result property="subtype" column="subtype"/>
+		<result property="account" column="account"/>
+		<result property="userkey" column="userKey"/>
+	</resultMap>
+	
+	<insert id="newMsbSubscriber" parameterType="com.micro.msb.beans.MsbSubscriberNewBean">
+		insert into msb_subscriber(subscriber,password,name,email,creationDate,modificationDate,subtype,account,userKey) 
+		values (#{subscriber},#{password},#{name},#{email},#{creationdate},#{modificationdate},#{subtype},#{account},#{userkey});
+	</insert>
+
+</mapper>

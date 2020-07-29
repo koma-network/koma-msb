@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbTrafficWriteResult" type="MsbTrafficWriteBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="account" column="account"/>
+		<result property="from" column="from"/>
+		<result property="to" column="to"/>
+		<result property="counter" column="counter"/>
+		<result property="type" column="type"/>
+		<result property="lastUpdate" column="last_update"/>
+		<result property="status" column="status"/>
+	</resultMap>
+	
+	<update id="writeMsbTraffic" parameterType="com.micro.msb.beans.MsbTrafficWriteBean">
+		update msb_traffic set subscriber = #{subscriber},
+		account = #{account},
+		from = #{from},
+		to = #{to},
+		counter = #{counter},
+		type = #{type},
+		last_update = #{lastUpdate},
+		status = #{status} where subscriber = #{subscriber};
+	</update>
+
+</mapper>

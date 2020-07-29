@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbMucserviceWriteResult" type="MsbMucserviceWriteBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="domain" column="domain"/>
+		<result property="subdomain" column="subdomain"/>
+		<result property="description" column="description"/>
+		<result property="ishidden" column="isHidden"/>
+	</resultMap>
+	
+	<update id="writeMsbMucservice" parameterType="com.micro.msb.beans.MsbMucserviceWriteBean">
+		update msb_mucservice set serviceID = #{serviceid},
+		domain = #{domain},
+		subdomain = #{subdomain},
+		description = #{description},
+		isHidden = #{ishidden} where serviceID = #{serviceid};
+	</update>
+
+</mapper>

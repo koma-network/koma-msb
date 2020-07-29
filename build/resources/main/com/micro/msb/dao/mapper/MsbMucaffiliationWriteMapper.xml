@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbMucaffiliationWriteResult" type="MsbMucaffiliationWriteBean">
+		<result property="roomid" column="roomID"/>
+		<result property="jid" column="jid"/>
+		<result property="affiliation" column="affiliation"/>
+	</resultMap>
+	
+	<update id="writeMsbMucaffiliation" parameterType="com.micro.msb.beans.MsbMucaffiliationWriteBean">
+		update msb_mucaffiliation set roomID = #{roomid},
+		jid = #{jid},
+		affiliation = #{affiliation} where roomID = #{roomid};
+	</update>
+
+</mapper>

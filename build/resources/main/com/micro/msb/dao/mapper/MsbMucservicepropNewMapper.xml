@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbMucservicepropNewResult" type="MsbMucservicepropNewBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="name" column="name"/>
+		<result property="propvalue" column="propValue"/>
+	</resultMap>
+	
+	<insert id="newMsbMucserviceprop" parameterType="com.micro.msb.beans.MsbMucservicepropNewBean">
+		insert into msb_mucserviceprop(serviceID,name,propValue) 
+		values (#{serviceid},#{name},#{propvalue});
+	</insert>
+
+</mapper>

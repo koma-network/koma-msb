@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPubsubaffiliationReadResult" type="MsbPubsubaffiliationReadBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="nodeid" column="nodeID"/>
+		<result property="jid" column="jid"/>
+		<result property="affiliation" column="affiliation"/>
+	</resultMap>
+	
+	<select id="readMsbPubsubaffiliation" parameterType="com.micro.msb.beans.MsbPubsubaffiliationReadBean" resultMap="msbPubsubaffiliationReadResult">         
+		select * from msb_pubsubaffiliation where serviceID = #{serviceid};
+	</select>
+
+</mapper>

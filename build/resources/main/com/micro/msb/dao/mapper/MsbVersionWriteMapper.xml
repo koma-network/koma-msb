@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbVersionWriteResult" type="MsbVersionWriteBean">
+		<result property="name" column="name"/>
+		<result property="version" column="version"/>
+	</resultMap>
+	
+	<update id="writeMsbVersion" parameterType="com.micro.msb.beans.MsbVersionWriteBean">
+		update msb_version set name = #{name},
+		version = #{version} where name = #{name};
+	</update>
+
+</mapper>

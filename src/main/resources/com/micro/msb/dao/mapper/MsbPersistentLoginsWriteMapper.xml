@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPersistentLoginsWriteResult" type="MsbPersistentLoginsWriteBean">
+		<result property="username" column="username"/>
+		<result property="series" column="series"/>
+		<result property="token" column="token"/>
+		<result property="lastUsed" column="last_used"/>
+	</resultMap>
+	
+	<update id="writeMsbPersistentLogins" parameterType="com.micro.msb.beans.MsbPersistentLoginsWriteBean">
+		update msb_persistent_logins set username = #{username},
+		series = #{series},
+		token = #{token},
+		last_used = #{lastUsed} where username = #{username};
+	</update>
+
+</mapper>

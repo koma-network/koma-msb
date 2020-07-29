@@ -1,0 +1,39 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.2.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.micro.msb'
+version = '1.0.1-RELEASE'
+sourceCompatibility = '1.8'
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+if (!hasProperty('mainClass')) {
+    ext.mainClass = 'com.micro.msb.MainApplication'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2")
+    compile("com.zaxxer:HikariCP:2.6.0")
+    compile("mysql:mysql-connector-java:5.1.40")
+    compile("org.zeromq:jeromq:0.4.3")
+    compile("com.google.code.gson:gson:2.8.2")
+    compile group: 'org.json', name: 'json', version: '20180813'
+}

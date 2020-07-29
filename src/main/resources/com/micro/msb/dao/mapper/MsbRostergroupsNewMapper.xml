@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbRostergroupsNewResult" type="MsbRostergroupsNewBean">
+		<result property="rosterid" column="rosterID"/>
+		<result property="rank" column="rank"/>
+		<result property="groupname" column="groupName"/>
+	</resultMap>
+	
+	<insert id="newMsbRostergroups" parameterType="com.micro.msb.beans.MsbRostergroupsNewBean">
+		insert into msb_rostergroups(rosterID,rank,groupName) 
+		values (#{rosterid},#{rank},#{groupname});
+	</insert>
+
+</mapper>

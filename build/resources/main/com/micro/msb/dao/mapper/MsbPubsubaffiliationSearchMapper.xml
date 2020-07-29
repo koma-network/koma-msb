@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbPubsubaffiliationResult" type="MsbPubsubaffiliationBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="nodeid" column="nodeID"/>
+		<result property="jid" column="jid"/>
+		<result property="affiliation" column="affiliation"/>
+	</resultMap>
+
+	<select id="countMsbPubsubaffiliationSearch" parameterType="com.micro.msb.beans.MsbPubsubaffiliationSearchBean" resultType="Integer">
+		select count(*) from msb_pubsubaffiliation
+		<where>
+			<if test="serviceid!=null">
+				serviceID like #{serviceid}
+			</if>
+			<if test="nodeid!=null">
+				nodeID like #{nodeid}
+			</if>
+			<if test="jid!=null">
+				jid like #{jid}
+			</if>
+			<if test="affiliation!=null">
+				affiliation like #{affiliation}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbPubsubaffiliation" parameterType="com.micro.msb.beans.MsbPubsubaffiliationSearchBean" resultMap="msbPubsubaffiliationResult">         
+		select * from msb_pubsubaffiliation  
+		<where>
+			<if test="serviceid!=null">
+				serviceID like #{serviceid}
+			</if>
+			<if test="nodeid!=null">
+				nodeID like #{nodeid}
+			</if>
+			<if test="jid!=null">
+				jid like #{jid}
+			</if>
+			<if test="affiliation!=null">
+				affiliation like #{affiliation}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

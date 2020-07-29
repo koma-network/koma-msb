@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<select id="searchMsbSessionRosterAll" parameterType="com.micro.msb.beans.MsbSessionSearchBean" resultMap="msbSessionResult">
+                select * from msb_session a where a.subscriber in (
+                select SUBSTRING_INDEX(b.jid, '@', 1) as friend from msb_roster b
+                where b.subscriber = (select c.subscriber from msb_session c where sessionId = #{sessionid}));
+	</select>
+
+	<select id="searchMsbSessionRosterOnline" parameterType="com.micro.msb.beans.MsbSessionSearchBean" resultMap="msbSessionResult">
+                select * from msb_session a where a.subscriber in (
+                select SUBSTRING_INDEX(b.jid, '@', 1) as friend from msb_roster b
+                where b.subscriber = (select c.subscriber from msb_session c where sessionId = #{sessionid}))
+                and a.presence = 'available';            
+	</select>
+
+	<select id="searchMsbSessionRosterSubscriber" parameterType="com.micro.msb.beans.MsbSessionSearchBean" resultMap="msbSessionResult">
+                select * from msb_session a where a.subscriber in (
+                select SUBSTRING_INDEX(b.jid, '@', 1) as friend from msb_roster b
+                where b.subscriber = (select c.subscriber from msb_session c where sessionId = #{sessionid}))
+                and a.subscriber = #{subscriber}
+                and a.startTime = (select max(d.startTime) from msb_session d where d.subscriber = #{subscriber});
+	</select>
+
+	<delete id="deleteMsbSessionOldRecords" parameterType="com.micro.msb.beans.MsbSessionDeleteBean">
+		delete from msb_session where sessionId != #{sessionid} and subscriber = #{subscriber};
+	</delete>
+
+</mapper>

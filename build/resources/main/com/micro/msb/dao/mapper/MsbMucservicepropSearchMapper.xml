@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbMucservicepropResult" type="MsbMucservicepropBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="name" column="name"/>
+		<result property="propvalue" column="propValue"/>
+	</resultMap>
+
+	<select id="countMsbMucservicepropSearch" parameterType="com.micro.msb.beans.MsbMucservicepropSearchBean" resultType="Integer">
+		select count(*) from msb_mucserviceprop
+		<where>
+			<if test="serviceid!=null">
+				serviceID like #{serviceid}
+			</if>
+			<if test="name!=null">
+				name like #{name}
+			</if>
+			<if test="propvalue!=null">
+				propValue like #{propvalue}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbMucserviceprop" parameterType="com.micro.msb.beans.MsbMucservicepropSearchBean" resultMap="msbMucservicepropResult">         
+		select * from msb_mucserviceprop  
+		<where>
+			<if test="serviceid!=null">
+				serviceID like #{serviceid}
+			</if>
+			<if test="name!=null">
+				name like #{name}
+			</if>
+			<if test="propvalue!=null">
+				propValue like #{propvalue}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

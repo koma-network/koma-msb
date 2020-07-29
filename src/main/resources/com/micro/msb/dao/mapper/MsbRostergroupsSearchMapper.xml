@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbRostergroupsResult" type="MsbRostergroupsBean">
+		<result property="rosterid" column="rosterID"/>
+		<result property="rank" column="rank"/>
+		<result property="groupname" column="groupName"/>
+	</resultMap>
+
+	<select id="countMsbRostergroupsSearch" parameterType="com.micro.msb.beans.MsbRostergroupsSearchBean" resultType="Integer">
+		select count(*) from msb_rostergroups
+		<where>
+			<if test="rosterid!=null">
+				rosterID like #{rosterid}
+			</if>
+			<if test="rank!=null">
+				rank like #{rank}
+			</if>
+			<if test="groupname!=null">
+				groupName like #{groupname}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbRostergroups" parameterType="com.micro.msb.beans.MsbRostergroupsSearchBean" resultMap="msbRostergroupsResult">         
+		select * from msb_rostergroups  
+		<where>
+			<if test="rosterid!=null">
+				rosterID like #{rosterid}
+			</if>
+			<if test="rank!=null">
+				rank like #{rank}
+			</if>
+			<if test="groupname!=null">
+				groupName like #{groupname}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

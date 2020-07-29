@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbMucmemberWriteResult" type="MsbMucmemberWriteBean">
+		<result property="roomid" column="roomID"/>
+		<result property="jid" column="jid"/>
+		<result property="subscriber" column="subscriber"/>
+		<result property="nickname" column="nickname"/>
+		<result property="firstname" column="firstName"/>
+		<result property="lastname" column="lastName"/>
+		<result property="url" column="url"/>
+		<result property="email" column="email"/>
+		<result property="faqentry" column="faqentry"/>
+	</resultMap>
+	
+	<update id="writeMsbMucmember" parameterType="com.micro.msb.beans.MsbMucmemberWriteBean">
+		update msb_mucmember set roomID = #{roomid},
+		jid = #{jid},
+		subscriber = #{subscriber},
+		nickname = #{nickname},
+		firstName = #{firstname},
+		lastName = #{lastname},
+		url = #{url},
+		email = #{email},
+		faqentry = #{faqentry} where roomID = #{roomid};
+	</update>
+
+</mapper>

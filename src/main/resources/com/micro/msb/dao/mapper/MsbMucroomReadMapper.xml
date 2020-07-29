@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbMucroomReadResult" type="MsbMucroomReadBean">
+		<result property="roomid" column="roomID"/>
+		<result property="serviceid" column="serviceID"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="modificationdate" column="modificationDate"/>
+		<result property="name" column="name"/>
+		<result property="naturalname" column="naturalName"/>
+		<result property="description" column="description"/>
+		<result property="lockeddate" column="lockedDate"/>
+		<result property="emptydate" column="emptyDate"/>
+		<result property="canchangesubject" column="canChangeSubject"/>
+		<result property="maxusers" column="maxUsers"/>
+		<result property="publicroom" column="publicRoom"/>
+		<result property="moderated" column="moderated"/>
+		<result property="membersonly" column="membersOnly"/>
+		<result property="caninvite" column="canInvite"/>
+		<result property="roompassword" column="roomPassword"/>
+		<result property="candiscoverjid" column="canDiscoverJID"/>
+		<result property="logenabled" column="logEnabled"/>
+		<result property="subject" column="subject"/>
+		<result property="rolestobroadcast" column="rolesToBroadcast"/>
+		<result property="usereservednick" column="useReservedNick"/>
+		<result property="canchangenick" column="canChangeNick"/>
+		<result property="canregister" column="canRegister"/>
+		<collection property="msbMucaffiliation" column="roomID" select="readMsbMucroomMsbMucaffiliation"/>
+		<collection property="msbMucmember" column="roomID" select="readMsbMucroomMsbMucmember"/>
+		<collection property="msbMucroomprop" column="roomID" select="readMsbMucroomMsbMucroomprop"/>
+	</resultMap>
+	
+	<select id="readMsbMucroom" parameterType="com.micro.msb.beans.MsbMucroomReadBean" resultMap="msbMucroomReadResult">         
+		select * from msb_mucroom where roomID = #{roomid};
+	</select>
+
+	<select id="readMsbMucroomMsbMucaffiliation" parameterType="Long" resultMap="msbMucaffiliationResult">         
+		select * from msb_mucaffiliation where roomID = #{roomid};
+	</select>
+  
+	<select id="readMsbMucroomMsbMucmember" parameterType="Long" resultMap="msbMucmemberResult">         
+		select * from msb_mucmember where roomID = #{roomid};
+	</select>
+  
+	<select id="readMsbMucroomMsbMucroomprop" parameterType="Long" resultMap="msbMucroompropResult">         
+		select * from msb_mucroomprop where roomID = #{roomid};
+	</select>
+  
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbAffiliationReadResult" type="MsbAffiliationReadBean">
+		<result property="affiliation" column="affiliation"/>
+		<result property="description" column="description"/>
+	</resultMap>
+	
+	<select id="readMsbAffiliation" parameterType="com.micro.msb.beans.MsbAffiliationReadBean" resultMap="msbAffiliationReadResult">         
+		select * from msb_affiliation where affiliation = #{affiliation};
+	</select>
+
+</mapper>

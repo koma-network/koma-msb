@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbSubscriberReadResult" type="MsbSubscriberReadBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="password" column="password"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="modificationdate" column="modificationDate"/>
+		<result property="subtype" column="subtype"/>
+		<result property="account" column="account"/>
+		<result property="userkey" column="userKey"/>
+		<collection property="msbMucmember" column="subscriber" select="readMsbSubscriberMsbMucmember"/>
+		<collection property="msbOffline" column="subscriber" select="readMsbSubscriberMsbOffline"/>
+		<collection property="msbPresence" column="subscriber" select="readMsbSubscriberMsbPresence"/>
+		<collection property="msbRevenue" column="subscriber" select="readMsbSubscriberMsbRevenue"/>
+		<collection property="msbRoster" column="subscriber" select="readMsbSubscriberMsbRoster"/>
+		<collection property="msbSession" column="subscriber" select="readMsbSubscriberMsbSession"/>
+		<collection property="msbSubscriberprop" column="subscriber" select="readMsbSubscriberMsbSubscriberprop"/>
+		<collection property="msbTraffic" column="subscriber" select="readMsbSubscriberMsbTraffic"/>
+		<collection property="msbVcard" column="subscriber" select="readMsbSubscriberMsbVcard"/>
+	</resultMap>
+	
+	<select id="readMsbSubscriber" parameterType="com.micro.msb.beans.MsbSubscriberReadBean" resultMap="msbSubscriberReadResult">         
+		select * from msb_subscriber where subscriber = #{subscriber};
+	</select>
+
+	<select id="readMsbSubscriberMsbMucmember" parameterType="String" resultMap="msbMucmemberResult">         
+		select * from msb_mucmember where subscriber = #{subscriber};
+	</select>
+  
+	<select id="readMsbSubscriberMsbOffline" parameterType="String" resultMap="msbOfflineResult">         
+		select * from msb_offline where subscriber = #{subscriber};
+	</select>
+  
+	<select id="readMsbSubscriberMsbPresence" parameterType="String" resultMap="msbPresenceResult">         
+		select * from msb_presence where subscriber = #{subscriber};
+	</select>
+  
+	<select id="readMsbSubscriberMsbRevenue" parameterType="String" resultMap="msbRevenueResult">         
+		select * from msb_revenue where subscriber = #{subscriber};
+	</select>
+  
+	<select id="readMsbSubscriberMsbRoster" parameterType="String" resultMap="msbRosterResult">         
+		select * from msb_roster where subscriber = #{subscriber};
+	</select>
+  
+	<select id="readMsbSubscriberMsbSession" parameterType="String" resultMap="msbSessionResult">         
+		select * from msb_session where subscriber = #{subscriber};
+	</select>
+  
+	<select id="readMsbSubscriberMsbSubscriberprop" parameterType="String" resultMap="msbSubscriberpropResult">         
+		select * from msb_subscriberprop where subscriber = #{subscriber};
+	</select>
+  
+	<select id="readMsbSubscriberMsbTraffic" parameterType="String" resultMap="msbTrafficResult">         
+		select * from msb_traffic where subscriber = #{subscriber};
+	</select>
+  
+	<select id="readMsbSubscriberMsbVcard" parameterType="String" resultMap="msbVcardResult">         
+		select * from msb_vcard where subscriber = #{subscriber};
+	</select>
+  
+</mapper>

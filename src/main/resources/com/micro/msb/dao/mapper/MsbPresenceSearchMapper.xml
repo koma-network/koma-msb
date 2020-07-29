@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbPresenceResult" type="MsbPresenceBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="offlinepresence" column="offlinePresence"/>
+		<result property="offlinedate" column="offlineDate"/>
+	</resultMap>
+
+	<select id="countMsbPresenceSearch" parameterType="com.micro.msb.beans.MsbPresenceSearchBean" resultType="Integer">
+		select count(*) from msb_presence
+		<where>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="offlinepresence!=null">
+				offlinePresence like #{offlinepresence}
+			</if>
+			<if test="offlinedate!=null">
+				offlineDate like #{offlinedate}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbPresence" parameterType="com.micro.msb.beans.MsbPresenceSearchBean" resultMap="msbPresenceResult">         
+		select * from msb_presence  
+		<where>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="offlinepresence!=null">
+				offlinePresence like #{offlinepresence}
+			</if>
+			<if test="offlinedate!=null">
+				offlineDate like #{offlinedate}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

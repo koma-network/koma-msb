@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbPubsubnodeResult" type="MsbPubsubnodeBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="nodeid" column="nodeID"/>
+		<result property="leaf" column="leaf"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="modificationdate" column="modificationDate"/>
+		<result property="parent" column="parent"/>
+		<result property="deliverpayloads" column="deliverPayloads"/>
+		<result property="maxpayloadsize" column="maxPayloadSize"/>
+		<result property="persistitems" column="persistItems"/>
+		<result property="maxitems" column="maxItems"/>
+		<result property="notifyconfigchanges" column="notifyConfigChanges"/>
+		<result property="notifydelete" column="notifyDelete"/>
+		<result property="notifyretract" column="notifyRetract"/>
+		<result property="presencebased" column="presenceBased"/>
+		<result property="senditemsubscribe" column="sendItemSubscribe"/>
+		<result property="publishermodel" column="publisherModel"/>
+		<result property="subscriptionenabled" column="subscriptionEnabled"/>
+		<result property="configsubscription" column="configSubscription"/>
+		<result property="accessmodel" column="accessModel"/>
+		<result property="payloadtype" column="payloadType"/>
+		<result property="bodyxslt" column="bodyXSLT"/>
+		<result property="dataformxslt" column="dataformXSLT"/>
+		<result property="creator" column="creator"/>
+		<result property="description" column="description"/>
+		<result property="language" column="language"/>
+		<result property="name" column="name"/>
+		<result property="replypolicy" column="replyPolicy"/>
+		<result property="associationpolicy" column="associationPolicy"/>
+		<result property="maxleafnodes" column="maxLeafNodes"/>
+	</resultMap>
+
+	<select id="countMsbPubsubnodeSearch" parameterType="com.micro.msb.beans.MsbPubsubnodeSearchBean" resultType="Integer">
+		select count(*) from msb_pubsubnode
+		<where>
+			<if test="serviceid!=null">
+				serviceID like #{serviceid}
+			</if>
+			<if test="nodeid!=null">
+				nodeID like #{nodeid}
+			</if>
+			<if test="leaf!=null">
+				leaf like #{leaf}
+			</if>
+			<if test="creationdate!=null">
+				creationDate like #{creationdate}
+			</if>
+			<if test="modificationdate!=null">
+				modificationDate like #{modificationdate}
+			</if>
+			<if test="parent!=null">
+				parent like #{parent}
+			</if>
+			<if test="deliverpayloads!=null">
+				deliverPayloads like #{deliverpayloads}
+			</if>
+			<if test="maxpayloadsize!=null">
+				maxPayloadSize like #{maxpayloadsize}
+			</if>
+			<if test="persistitems!=null">
+				persistItems like #{persistitems}
+			</if>
+			<if test="maxitems!=null">
+				maxItems like #{maxitems}
+			</if>
+			<if test="notifyconfigchanges!=null">
+				notifyConfigChanges like #{notifyconfigchanges}
+			</if>
+			<if test="notifydelete!=null">
+				notifyDelete like #{notifydelete}
+			</if>
+			<if test="notifyretract!=null">
+				notifyRetract like #{notifyretract}
+			</if>
+			<if test="presencebased!=null">
+				presenceBased like #{presencebased}
+			</if>
+			<if test="senditemsubscribe!=null">
+				sendItemSubscribe like #{senditemsubscribe}
+			</if>
+			<if test="publishermodel!=null">
+				publisherModel like #{publishermodel}
+			</if>
+			<if test="subscriptionenabled!=null">
+				subscriptionEnabled like #{subscriptionenabled}
+			</if>
+			<if test="configsubscription!=null">
+				configSubscription like #{configsubscription}
+			</if>
+			<if test="accessmodel!=null">
+				accessModel like #{accessmodel}
+			</if>
+			<if test="payloadtype!=null">
+				payloadType like #{payloadtype}
+			</if>
+			<if test="bodyxslt!=null">
+				bodyXSLT like #{bodyxslt}
+			</if>
+			<if test="dataformxslt!=null">
+				dataformXSLT like #{dataformxslt}
+			</if>
+			<if test="creator!=null">
+				creator like #{creator}
+			</if>
+			<if test="description!=null">
+				description like #{description}
+			</if>
+			<if test="language!=null">
+				language like #{language}
+			</if>
+			<if test="name!=null">
+				name like #{name}
+			</if>
+			<if test="replypolicy!=null">
+				replyPolicy like #{replypolicy}
+			</if>
+			<if test="associationpolicy!=null">
+				associationPolicy like #{associationpolicy}
+			</if>
+			<if test="maxleafnodes!=null">
+				maxLeafNodes like #{maxleafnodes}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbPubsubnode" parameterType="com.micro.msb.beans.MsbPubsubnodeSearchBean" resultMap="msbPubsubnodeResult">         
+		select * from msb_pubsubnode  
+		<where>
+			<if test="serviceid!=null">
+				serviceID like #{serviceid}
+			</if>
+			<if test="nodeid!=null">
+				nodeID like #{nodeid}
+			</if>
+			<if test="leaf!=null">
+				leaf like #{leaf}
+			</if>
+			<if test="creationdate!=null">
+				creationDate like #{creationdate}
+			</if>
+			<if test="modificationdate!=null">
+				modificationDate like #{modificationdate}
+			</if>
+			<if test="parent!=null">
+				parent like #{parent}
+			</if>
+			<if test="deliverpayloads!=null">
+				deliverPayloads like #{deliverpayloads}
+			</if>
+			<if test="maxpayloadsize!=null">
+				maxPayloadSize like #{maxpayloadsize}
+			</if>
+			<if test="persistitems!=null">
+				persistItems like #{persistitems}
+			</if>
+			<if test="maxitems!=null">
+				maxItems like #{maxitems}
+			</if>
+			<if test="notifyconfigchanges!=null">
+				notifyConfigChanges like #{notifyconfigchanges}
+			</if>
+			<if test="notifydelete!=null">
+				notifyDelete like #{notifydelete}
+			</if>
+			<if test="notifyretract!=null">
+				notifyRetract like #{notifyretract}
+			</if>
+			<if test="presencebased!=null">
+				presenceBased like #{presencebased}
+			</if>
+			<if test="senditemsubscribe!=null">
+				sendItemSubscribe like #{senditemsubscribe}
+			</if>
+			<if test="publishermodel!=null">
+				publisherModel like #{publishermodel}
+			</if>
+			<if test="subscriptionenabled!=null">
+				subscriptionEnabled like #{subscriptionenabled}
+			</if>
+			<if test="configsubscription!=null">
+				configSubscription like #{configsubscription}
+			</if>
+			<if test="accessmodel!=null">
+				accessModel like #{accessmodel}
+			</if>
+			<if test="payloadtype!=null">
+				payloadType like #{payloadtype}
+			</if>
+			<if test="bodyxslt!=null">
+				bodyXSLT like #{bodyxslt}
+			</if>
+			<if test="dataformxslt!=null">
+				dataformXSLT like #{dataformxslt}
+			</if>
+			<if test="creator!=null">
+				creator like #{creator}
+			</if>
+			<if test="description!=null">
+				description like #{description}
+			</if>
+			<if test="language!=null">
+				language like #{language}
+			</if>
+			<if test="name!=null">
+				name like #{name}
+			</if>
+			<if test="replypolicy!=null">
+				replyPolicy like #{replypolicy}
+			</if>
+			<if test="associationpolicy!=null">
+				associationPolicy like #{associationpolicy}
+			</if>
+			<if test="maxleafnodes!=null">
+				maxLeafNodes like #{maxleafnodes}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

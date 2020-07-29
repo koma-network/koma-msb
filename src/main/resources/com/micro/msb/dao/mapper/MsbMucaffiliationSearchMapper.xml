@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbMucaffiliationResult" type="MsbMucaffiliationBean">
+		<result property="roomid" column="roomID"/>
+		<result property="jid" column="jid"/>
+		<result property="affiliation" column="affiliation"/>
+	</resultMap>
+
+	<select id="countMsbMucaffiliationSearch" parameterType="com.micro.msb.beans.MsbMucaffiliationSearchBean" resultType="Integer">
+		select count(*) from msb_mucaffiliation
+		<where>
+			<if test="roomid!=null">
+				roomID like #{roomid}
+			</if>
+			<if test="jid!=null">
+				jid like #{jid}
+			</if>
+			<if test="affiliation!=null">
+				affiliation like #{affiliation}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbMucaffiliation" parameterType="com.micro.msb.beans.MsbMucaffiliationSearchBean" resultMap="msbMucaffiliationResult">         
+		select * from msb_mucaffiliation  
+		<where>
+			<if test="roomid!=null">
+				roomID like #{roomid}
+			</if>
+			<if test="jid!=null">
+				jid like #{jid}
+			</if>
+			<if test="affiliation!=null">
+				affiliation like #{affiliation}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

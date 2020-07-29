@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbRosterNewResult" type="MsbRosterNewBean">
+		<result property="rosterid" column="rosterID"/>
+		<result property="subscriber" column="subscriber"/>
+		<result property="jid" column="jid"/>
+		<result property="sub" column="sub"/>
+		<result property="ask" column="ask"/>
+		<result property="recv" column="recv"/>
+		<result property="nick" column="nick"/>
+		<result property="key" column="key"/>
+	</resultMap>
+	
+	<insert id="newMsbRoster" parameterType="com.micro.msb.beans.MsbRosterNewBean">
+		insert into msb_roster(rosterID,subscriber,jid,sub,ask,recv,nick,key) 
+		values (#{rosterid},#{subscriber},#{jid},#{sub},#{ask},#{recv},#{nick},#{key});
+	</insert>
+
+</mapper>

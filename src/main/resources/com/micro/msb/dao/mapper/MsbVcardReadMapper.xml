@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbVcardReadResult" type="MsbVcardReadBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="vcard" column="vcard"/>
+	</resultMap>
+	
+	<select id="readMsbVcard" parameterType="com.micro.msb.beans.MsbVcardReadBean" resultMap="msbVcardReadResult">         
+		select * from msb_vcard where subscriber = #{subscriber};
+	</select>
+
+</mapper>

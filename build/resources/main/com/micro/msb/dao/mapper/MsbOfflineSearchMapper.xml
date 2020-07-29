@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbOfflineResult" type="MsbOfflineBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="messageid" column="messageID"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="messagesize" column="messageSize"/>
+		<result property="stanza" column="stanza"/>
+	</resultMap>
+
+	<select id="countMsbOfflineSearch" parameterType="com.micro.msb.beans.MsbOfflineSearchBean" resultType="Integer">
+		select count(*) from msb_offline
+		<where>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="messageid!=null">
+				messageID like #{messageid}
+			</if>
+			<if test="creationdate!=null">
+				creationDate like #{creationdate}
+			</if>
+			<if test="messagesize!=null">
+				messageSize like #{messagesize}
+			</if>
+			<if test="stanza!=null">
+				stanza like #{stanza}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbOffline" parameterType="com.micro.msb.beans.MsbOfflineSearchBean" resultMap="msbOfflineResult">         
+		select * from msb_offline  
+		<where>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="messageid!=null">
+				messageID like #{messageid}
+			</if>
+			<if test="creationdate!=null">
+				creationDate like #{creationdate}
+			</if>
+			<if test="messagesize!=null">
+				messageSize like #{messagesize}
+			</if>
+			<if test="stanza!=null">
+				stanza like #{stanza}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

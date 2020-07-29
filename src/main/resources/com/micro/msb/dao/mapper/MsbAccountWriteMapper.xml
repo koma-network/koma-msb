@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbAccountWriteResult" type="MsbAccountWriteBean">
+		<result property="username" column="username"/>
+		<result property="password" column="password"/>
+		<result property="account" column="account"/>
+		<result property="email" column="email"/>
+		<result property="phone" column="phone"/>
+		<result property="mobile" column="mobile"/>
+		<result property="enabled" column="enabled"/>
+		<result property="token" column="token"/>
+	</resultMap>
+	
+	<update id="writeMsbAccount" parameterType="com.micro.msb.beans.MsbAccountWriteBean">
+		update msb_account set username = #{username},
+		password = #{password},
+		account = #{account},
+		email = #{email},
+		phone = #{phone},
+		mobile = #{mobile},
+		enabled = #{enabled},
+		token = #{token} where username = #{username};
+	</update>
+
+</mapper>

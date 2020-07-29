@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbSubscriberWriteResult" type="MsbSubscriberWriteBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="password" column="password"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="modificationdate" column="modificationDate"/>
+		<result property="subtype" column="subtype"/>
+		<result property="account" column="account"/>
+		<result property="userkey" column="userKey"/>
+	</resultMap>
+	
+	<update id="writeMsbSubscriber" parameterType="com.micro.msb.beans.MsbSubscriberWriteBean">
+		update msb_subscriber set subscriber = #{subscriber},
+		password = #{password},
+		name = #{name},
+		email = #{email},
+		creationDate = #{creationdate},
+		modificationDate = #{modificationdate},
+		subtype = #{subtype},
+		account = #{account},
+		userKey = #{userkey} where subscriber = #{subscriber};
+	</update>
+
+</mapper>

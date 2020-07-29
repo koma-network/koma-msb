@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbOfflineDeleteResult" type="MsbOfflineDeleteBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="messageid" column="messageID"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="messagesize" column="messageSize"/>
+		<result property="stanza" column="stanza"/>
+	</resultMap>
+	
+	<delete id="deleteMsbOffline" parameterType="com.micro.msb.beans.MsbOfflineDeleteBean">
+		delete from msb_offline where subscriber = #{subscriber};
+	</delete>
+
+</mapper>

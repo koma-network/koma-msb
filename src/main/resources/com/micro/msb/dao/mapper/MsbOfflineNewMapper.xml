@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbOfflineNewResult" type="MsbOfflineNewBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="messageid" column="messageID"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="messagesize" column="messageSize"/>
+		<result property="stanza" column="stanza"/>
+	</resultMap>
+	
+	<insert id="newMsbOffline" parameterType="com.micro.msb.beans.MsbOfflineNewBean">
+		insert into msb_offline(subscriber,messageID,creationDate,messageSize,stanza) 
+		values (#{subscriber},#{messageid},#{creationdate},#{messagesize},#{stanza});
+	</insert>
+
+</mapper>

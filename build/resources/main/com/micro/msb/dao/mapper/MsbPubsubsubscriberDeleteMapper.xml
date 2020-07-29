@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPubsubsubscriberDeleteResult" type="MsbPubsubsubscriberDeleteBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="nodeid" column="nodeID"/>
+		<result property="jid" column="jid"/>
+		<result property="associationtype" column="associationType"/>
+	</resultMap>
+	
+	<delete id="deleteMsbPubsubsubscriber" parameterType="com.micro.msb.beans.MsbPubsubsubscriberDeleteBean">
+		delete from msb_pubsubsubscriber where serviceID = #{serviceid};
+	</delete>
+
+</mapper>

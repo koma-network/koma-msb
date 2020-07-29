@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbSessionResult" type="MsbSessionBean">
+		<result property="sessionid" column="sessionId"/>
+		<result property="subscriber" column="subscriber"/>
+		<result property="domain" column="domain"/>
+		<result property="ipaddress" column="ipAddress"/>
+		<result property="ipport" column="ipPort"/>
+		<result property="protocol" column="protocol"/>
+		<result property="starttime" column="startTime"/>
+		<result property="endtime" column="endTime"/>
+		<result property="resource" column="resource"/>
+		<result property="presence" column="presence"/>
+		<result property="status" column="status"/>
+	</resultMap>
+
+	<select id="countMsbSessionSearch" parameterType="com.micro.msb.beans.MsbSessionSearchBean" resultType="Integer">
+		select count(*) from msb_session
+		<where>
+			<if test="sessionid!=null">
+				sessionId like #{sessionid}
+			</if>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="domain!=null">
+				domain like #{domain}
+			</if>
+			<if test="ipaddress!=null">
+				ipAddress like #{ipaddress}
+			</if>
+			<if test="ipport!=null">
+				ipPort like #{ipport}
+			</if>
+			<if test="protocol!=null">
+				protocol like #{protocol}
+			</if>
+			<if test="starttime!=null">
+				startTime like #{starttime}
+			</if>
+			<if test="endtime!=null">
+				endTime like #{endtime}
+			</if>
+			<if test="resource!=null">
+				resource like #{resource}
+			</if>
+			<if test="presence!=null">
+				presence like #{presence}
+			</if>
+			<if test="status!=null">
+				status like #{status}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbSession" parameterType="com.micro.msb.beans.MsbSessionSearchBean" resultMap="msbSessionResult">         
+		select * from msb_session  
+		<where>
+			<if test="sessionid!=null">
+				sessionId like #{sessionid}
+			</if>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="domain!=null">
+				domain like #{domain}
+			</if>
+			<if test="ipaddress!=null">
+				ipAddress like #{ipaddress}
+			</if>
+			<if test="ipport!=null">
+				ipPort like #{ipport}
+			</if>
+			<if test="protocol!=null">
+				protocol like #{protocol}
+			</if>
+			<if test="starttime!=null">
+				startTime like #{starttime}
+			</if>
+			<if test="endtime!=null">
+				endTime like #{endtime}
+			</if>
+			<if test="resource!=null">
+				resource like #{resource}
+			</if>
+			<if test="presence!=null">
+				presence like #{presence}
+			</if>
+			<if test="status!=null">
+				status like #{status}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

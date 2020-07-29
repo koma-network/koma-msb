@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbMucservicepropReadResult" type="MsbMucservicepropReadBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="name" column="name"/>
+		<result property="propvalue" column="propValue"/>
+	</resultMap>
+	
+	<select id="readMsbMucserviceprop" parameterType="com.micro.msb.beans.MsbMucservicepropReadBean" resultMap="msbMucservicepropReadResult">         
+		select * from msb_mucserviceprop where serviceID = #{serviceid};
+	</select>
+
+</mapper>

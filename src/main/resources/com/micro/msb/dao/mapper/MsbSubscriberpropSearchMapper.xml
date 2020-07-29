@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbSubscriberpropResult" type="MsbSubscriberpropBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="name" column="name"/>
+		<result property="propvalue" column="propValue"/>
+	</resultMap>
+
+	<select id="countMsbSubscriberpropSearch" parameterType="com.micro.msb.beans.MsbSubscriberpropSearchBean" resultType="Integer">
+		select count(*) from msb_subscriberprop
+		<where>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="name!=null">
+				name like #{name}
+			</if>
+			<if test="propvalue!=null">
+				propValue like #{propvalue}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbSubscriberprop" parameterType="com.micro.msb.beans.MsbSubscriberpropSearchBean" resultMap="msbSubscriberpropResult">         
+		select * from msb_subscriberprop  
+		<where>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="name!=null">
+				name like #{name}
+			</if>
+			<if test="propvalue!=null">
+				propValue like #{propvalue}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPubsubReadResult" type="MsbPubsubReadBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="protocol" column="protocol"/>
+		<result property="description" column="description"/>
+		<collection property="msbPubsubnode" column="serviceID" select="readMsbPubsubMsbPubsubnode"/>
+	</resultMap>
+	
+	<select id="readMsbPubsub" parameterType="com.micro.msb.beans.MsbPubsubReadBean" resultMap="msbPubsubReadResult">         
+		select * from msb_pubsub where serviceID = #{serviceid};
+	</select>
+
+	<select id="readMsbPubsubMsbPubsubnode" parameterType="String" resultMap="msbPubsubnodeResult">         
+		select * from msb_pubsubnode where serviceID = #{serviceid};
+	</select>
+  
+</mapper>

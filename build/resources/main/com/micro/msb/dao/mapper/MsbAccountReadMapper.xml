@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbAccountReadResult" type="MsbAccountReadBean">
+		<result property="username" column="username"/>
+		<result property="password" column="password"/>
+		<result property="account" column="account"/>
+		<result property="email" column="email"/>
+		<result property="phone" column="phone"/>
+		<result property="mobile" column="mobile"/>
+		<result property="enabled" column="enabled"/>
+		<result property="token" column="token"/>
+		<collection property="msbAuthorities" column="username" select="readMsbAccountMsbAuthorities"/>
+		<collection property="msbPersistentLogins" column="username" select="readMsbAccountMsbPersistentLogins"/>
+		<collection property="msbSubscriber" column="username" select="readMsbAccountMsbSubscriber"/>
+	</resultMap>
+	
+	<select id="readMsbAccount" parameterType="com.micro.msb.beans.MsbAccountReadBean" resultMap="msbAccountReadResult">         
+		select * from msb_account where username = #{username};
+	</select>
+
+	<select id="readMsbAccountMsbAuthorities" parameterType="String" resultMap="msbAuthoritiesResult">         
+		select * from msb_authorities where username = #{username};
+	</select>
+  
+	<select id="readMsbAccountMsbPersistentLogins" parameterType="String" resultMap="msbPersistentLoginsResult">         
+		select * from msb_persistent_logins where username = #{username};
+	</select>
+  
+	<select id="readMsbAccountMsbSubscriber" parameterType="String" resultMap="msbSubscriberResult">         
+		select * from msb_subscriber where username = #{username};
+	</select>
+  
+</mapper>

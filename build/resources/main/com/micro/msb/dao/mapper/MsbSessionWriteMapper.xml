@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbSessionWriteResult" type="MsbSessionWriteBean">
+		<result property="sessionid" column="sessionId"/>
+		<result property="subscriber" column="subscriber"/>
+		<result property="domain" column="domain"/>
+		<result property="ipaddress" column="ipAddress"/>
+		<result property="ipport" column="ipPort"/>
+		<result property="protocol" column="protocol"/>
+		<result property="starttime" column="startTime"/>
+		<result property="endtime" column="endTime"/>
+		<result property="resource" column="resource"/>
+		<result property="presence" column="presence"/>
+		<result property="status" column="status"/>
+	</resultMap>
+	
+	<update id="writeMsbSession" parameterType="com.micro.msb.beans.MsbSessionWriteBean">
+		update msb_session set sessionId = #{sessionid},
+		subscriber = #{subscriber},
+		domain = #{domain},
+		ipAddress = #{ipaddress},
+		ipPort = #{ipport},
+		protocol = #{protocol},
+		startTime = #{starttime},
+		endTime = #{endtime},
+		resource = #{resource},
+		presence = #{presence},
+		status = #{status} where sessionId = #{sessionid};
+	</update>
+
+</mapper>

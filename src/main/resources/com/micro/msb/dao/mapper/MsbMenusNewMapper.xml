@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbMenusNewResult" type="MsbMenusNewBean">
+		<result property="name" column="name"/>
+		<result property="link" column="link"/>
+		<result property="display" column="display"/>
+	</resultMap>
+	
+	<insert id="newMsbMenus" parameterType="com.micro.msb.beans.MsbMenusNewBean">
+		insert into msb_menus(name,link,display) 
+		values (#{name},#{link},#{display});
+	</insert>
+
+</mapper>

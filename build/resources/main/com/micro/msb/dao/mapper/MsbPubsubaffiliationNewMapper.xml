@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPubsubaffiliationNewResult" type="MsbPubsubaffiliationNewBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="nodeid" column="nodeID"/>
+		<result property="jid" column="jid"/>
+		<result property="affiliation" column="affiliation"/>
+	</resultMap>
+	
+	<insert id="newMsbPubsubaffiliation" parameterType="com.micro.msb.beans.MsbPubsubaffiliationNewBean">
+		insert into msb_pubsubaffiliation(serviceID,nodeID,jid,affiliation) 
+		values (#{serviceid},#{nodeid},#{jid},#{affiliation});
+	</insert>
+
+</mapper>

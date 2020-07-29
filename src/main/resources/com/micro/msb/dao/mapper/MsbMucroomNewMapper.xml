@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbMucroomNewResult" type="MsbMucroomNewBean">
+		<result property="roomid" column="roomID"/>
+		<result property="serviceid" column="serviceID"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="modificationdate" column="modificationDate"/>
+		<result property="name" column="name"/>
+		<result property="naturalname" column="naturalName"/>
+		<result property="description" column="description"/>
+		<result property="lockeddate" column="lockedDate"/>
+		<result property="emptydate" column="emptyDate"/>
+		<result property="canchangesubject" column="canChangeSubject"/>
+		<result property="maxusers" column="maxUsers"/>
+		<result property="publicroom" column="publicRoom"/>
+		<result property="moderated" column="moderated"/>
+		<result property="membersonly" column="membersOnly"/>
+		<result property="caninvite" column="canInvite"/>
+		<result property="roompassword" column="roomPassword"/>
+		<result property="candiscoverjid" column="canDiscoverJID"/>
+		<result property="logenabled" column="logEnabled"/>
+		<result property="subject" column="subject"/>
+		<result property="rolestobroadcast" column="rolesToBroadcast"/>
+		<result property="usereservednick" column="useReservedNick"/>
+		<result property="canchangenick" column="canChangeNick"/>
+		<result property="canregister" column="canRegister"/>
+	</resultMap>
+	
+	<insert id="newMsbMucroom" parameterType="com.micro.msb.beans.MsbMucroomNewBean">
+		insert into msb_mucroom(roomID,serviceID,creationDate,modificationDate,name,naturalName,description,lockedDate,emptyDate,canChangeSubject,maxUsers,publicRoom,moderated,membersOnly,canInvite,roomPassword,canDiscoverJID,logEnabled,subject,rolesToBroadcast,useReservedNick,canChangeNick,canRegister) 
+		values (#{roomid},#{serviceid},#{creationdate},#{modificationdate},#{name},#{naturalname},#{description},#{lockeddate},#{emptydate},#{canchangesubject},#{maxusers},#{publicroom},#{moderated},#{membersonly},#{caninvite},#{roompassword},#{candiscoverjid},#{logenabled},#{subject},#{rolestobroadcast},#{usereservednick},#{canchangenick},#{canregister});
+	</insert>
+
+</mapper>

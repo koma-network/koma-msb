@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPubsubnodeNewResult" type="MsbPubsubnodeNewBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="nodeid" column="nodeID"/>
+		<result property="leaf" column="leaf"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="modificationdate" column="modificationDate"/>
+		<result property="parent" column="parent"/>
+		<result property="deliverpayloads" column="deliverPayloads"/>
+		<result property="maxpayloadsize" column="maxPayloadSize"/>
+		<result property="persistitems" column="persistItems"/>
+		<result property="maxitems" column="maxItems"/>
+		<result property="notifyconfigchanges" column="notifyConfigChanges"/>
+		<result property="notifydelete" column="notifyDelete"/>
+		<result property="notifyretract" column="notifyRetract"/>
+		<result property="presencebased" column="presenceBased"/>
+		<result property="senditemsubscribe" column="sendItemSubscribe"/>
+		<result property="publishermodel" column="publisherModel"/>
+		<result property="subscriptionenabled" column="subscriptionEnabled"/>
+		<result property="configsubscription" column="configSubscription"/>
+		<result property="accessmodel" column="accessModel"/>
+		<result property="payloadtype" column="payloadType"/>
+		<result property="bodyxslt" column="bodyXSLT"/>
+		<result property="dataformxslt" column="dataformXSLT"/>
+		<result property="creator" column="creator"/>
+		<result property="description" column="description"/>
+		<result property="language" column="language"/>
+		<result property="name" column="name"/>
+		<result property="replypolicy" column="replyPolicy"/>
+		<result property="associationpolicy" column="associationPolicy"/>
+		<result property="maxleafnodes" column="maxLeafNodes"/>
+	</resultMap>
+	
+	<insert id="newMsbPubsubnode" parameterType="com.micro.msb.beans.MsbPubsubnodeNewBean">
+		insert into msb_pubsubnode(serviceID,nodeID,leaf,creationDate,modificationDate,parent,deliverPayloads,maxPayloadSize,persistItems,maxItems,notifyConfigChanges,notifyDelete,notifyRetract,presenceBased,sendItemSubscribe,publisherModel,subscriptionEnabled,configSubscription,accessModel,payloadType,bodyXSLT,dataformXSLT,creator,description,language,name,replyPolicy,associationPolicy,maxLeafNodes) 
+		values (#{serviceid},#{nodeid},#{leaf},#{creationdate},#{modificationdate},#{parent},#{deliverpayloads},#{maxpayloadsize},#{persistitems},#{maxitems},#{notifyconfigchanges},#{notifydelete},#{notifyretract},#{presencebased},#{senditemsubscribe},#{publishermodel},#{subscriptionenabled},#{configsubscription},#{accessmodel},#{payloadtype},#{bodyxslt},#{dataformxslt},#{creator},#{description},#{language},#{name},#{replypolicy},#{associationpolicy},#{maxleafnodes});
+	</insert>
+
+</mapper>

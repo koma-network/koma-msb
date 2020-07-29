@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbSubscribertypeReadResult" type="MsbSubscribertypeReadBean">
+		<result property="subtype" column="subtype"/>
+		<result property="description" column="description"/>
+		<collection property="msbSubscriber" column="subtype" select="readMsbSubscribertypeMsbSubscriber"/>
+	</resultMap>
+	
+	<select id="readMsbSubscribertype" parameterType="com.micro.msb.beans.MsbSubscribertypeReadBean" resultMap="msbSubscribertypeReadResult">         
+		select * from msb_subscribertype where subtype = #{subtype};
+	</select>
+
+	<select id="readMsbSubscribertypeMsbSubscriber" parameterType="String" resultMap="msbSubscriberResult">         
+		select * from msb_subscriber where subtype = #{subtype};
+	</select>
+  
+</mapper>

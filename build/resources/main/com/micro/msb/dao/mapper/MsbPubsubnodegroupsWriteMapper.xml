@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPubsubnodegroupsWriteResult" type="MsbPubsubnodegroupsWriteBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="nodeid" column="nodeID"/>
+		<result property="rostergroup" column="rosterGroup"/>
+	</resultMap>
+	
+	<update id="writeMsbPubsubnodegroups" parameterType="com.micro.msb.beans.MsbPubsubnodegroupsWriteBean">
+		update msb_pubsubnodegroups set serviceID = #{serviceid},
+		nodeID = #{nodeid},
+		rosterGroup = #{rostergroup} where serviceID = #{serviceid};
+	</update>
+
+</mapper>

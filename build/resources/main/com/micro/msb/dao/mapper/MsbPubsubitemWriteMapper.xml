@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPubsubitemWriteResult" type="MsbPubsubitemWriteBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="nodeid" column="nodeID"/>
+		<result property="id" column="id"/>
+		<result property="jid" column="jid"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="payload" column="payload"/>
+	</resultMap>
+	
+	<update id="writeMsbPubsubitem" parameterType="com.micro.msb.beans.MsbPubsubitemWriteBean">
+		update msb_pubsubitem set serviceID = #{serviceid},
+		nodeID = #{nodeid},
+		id = #{id},
+		jid = #{jid},
+		creationDate = #{creationdate},
+		payload = #{payload} where serviceID = #{serviceid};
+	</update>
+
+</mapper>

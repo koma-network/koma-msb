@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbAffiliationWriteResult" type="MsbAffiliationWriteBean">
+		<result property="affiliation" column="affiliation"/>
+		<result property="description" column="description"/>
+	</resultMap>
+	
+	<update id="writeMsbAffiliation" parameterType="com.micro.msb.beans.MsbAffiliationWriteBean">
+		update msb_affiliation set affiliation = #{affiliation},
+		description = #{description} where affiliation = #{affiliation};
+	</update>
+
+</mapper>

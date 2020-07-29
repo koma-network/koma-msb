@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPubsubNewResult" type="MsbPubsubNewBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="protocol" column="protocol"/>
+		<result property="description" column="description"/>
+	</resultMap>
+	
+	<insert id="newMsbPubsub" parameterType="com.micro.msb.beans.MsbPubsubNewBean">
+		insert into msb_pubsub(serviceID,protocol,description) 
+		values (#{serviceid},#{protocol},#{description});
+	</insert>
+
+</mapper>

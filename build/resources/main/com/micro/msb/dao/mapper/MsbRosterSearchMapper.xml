@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbRosterResult" type="MsbRosterBean">
+		<result property="rosterid" column="rosterID"/>
+		<result property="subscriber" column="subscriber"/>
+		<result property="jid" column="jid"/>
+		<result property="sub" column="sub"/>
+		<result property="ask" column="ask"/>
+		<result property="recv" column="recv"/>
+		<result property="nick" column="nick"/>
+		<result property="key" column="key"/>
+	</resultMap>
+
+	<select id="countMsbRosterSearch" parameterType="com.micro.msb.beans.MsbRosterSearchBean" resultType="Integer">
+		select count(*) from msb_roster
+		<where>
+			<if test="rosterid!=null">
+				rosterID like #{rosterid}
+			</if>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="jid!=null">
+				jid like #{jid}
+			</if>
+			<if test="sub!=null">
+				sub like #{sub}
+			</if>
+			<if test="ask!=null">
+				ask like #{ask}
+			</if>
+			<if test="recv!=null">
+				recv like #{recv}
+			</if>
+			<if test="nick!=null">
+				nick like #{nick}
+			</if>
+			<if test="key!=null">
+				key like #{key}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbRoster" parameterType="com.micro.msb.beans.MsbRosterSearchBean" resultMap="msbRosterResult">         
+		select * from msb_roster  
+		<where>
+			<if test="rosterid!=null">
+				rosterID like #{rosterid}
+			</if>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="jid!=null">
+				jid like #{jid}
+			</if>
+			<if test="sub!=null">
+				sub like #{sub}
+			</if>
+			<if test="ask!=null">
+				ask like #{ask}
+			</if>
+			<if test="recv!=null">
+				recv like #{recv}
+			</if>
+			<if test="nick!=null">
+				nick like #{nick}
+			</if>
+			<if test="key!=null">
+				key like #{key}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

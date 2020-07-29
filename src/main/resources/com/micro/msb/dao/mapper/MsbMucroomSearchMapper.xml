@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbMucroomResult" type="MsbMucroomBean">
+		<result property="roomid" column="roomID"/>
+		<result property="serviceid" column="serviceID"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="modificationdate" column="modificationDate"/>
+		<result property="name" column="name"/>
+		<result property="naturalname" column="naturalName"/>
+		<result property="description" column="description"/>
+		<result property="lockeddate" column="lockedDate"/>
+		<result property="emptydate" column="emptyDate"/>
+		<result property="canchangesubject" column="canChangeSubject"/>
+		<result property="maxusers" column="maxUsers"/>
+		<result property="publicroom" column="publicRoom"/>
+		<result property="moderated" column="moderated"/>
+		<result property="membersonly" column="membersOnly"/>
+		<result property="caninvite" column="canInvite"/>
+		<result property="roompassword" column="roomPassword"/>
+		<result property="candiscoverjid" column="canDiscoverJID"/>
+		<result property="logenabled" column="logEnabled"/>
+		<result property="subject" column="subject"/>
+		<result property="rolestobroadcast" column="rolesToBroadcast"/>
+		<result property="usereservednick" column="useReservedNick"/>
+		<result property="canchangenick" column="canChangeNick"/>
+		<result property="canregister" column="canRegister"/>
+	</resultMap>
+
+	<select id="countMsbMucroomSearch" parameterType="com.micro.msb.beans.MsbMucroomSearchBean" resultType="Integer">
+		select count(*) from msb_mucroom
+		<where>
+			<if test="roomid!=null">
+				roomID like #{roomid}
+			</if>
+			<if test="serviceid!=null">
+				serviceID like #{serviceid}
+			</if>
+			<if test="creationdate!=null">
+				creationDate like #{creationdate}
+			</if>
+			<if test="modificationdate!=null">
+				modificationDate like #{modificationdate}
+			</if>
+			<if test="name!=null">
+				name like #{name}
+			</if>
+			<if test="naturalname!=null">
+				naturalName like #{naturalname}
+			</if>
+			<if test="description!=null">
+				description like #{description}
+			</if>
+			<if test="lockeddate!=null">
+				lockedDate like #{lockeddate}
+			</if>
+			<if test="emptydate!=null">
+				emptyDate like #{emptydate}
+			</if>
+			<if test="canchangesubject!=null">
+				canChangeSubject like #{canchangesubject}
+			</if>
+			<if test="maxusers!=null">
+				maxUsers like #{maxusers}
+			</if>
+			<if test="publicroom!=null">
+				publicRoom like #{publicroom}
+			</if>
+			<if test="moderated!=null">
+				moderated like #{moderated}
+			</if>
+			<if test="membersonly!=null">
+				membersOnly like #{membersonly}
+			</if>
+			<if test="caninvite!=null">
+				canInvite like #{caninvite}
+			</if>
+			<if test="roompassword!=null">
+				roomPassword like #{roompassword}
+			</if>
+			<if test="candiscoverjid!=null">
+				canDiscoverJID like #{candiscoverjid}
+			</if>
+			<if test="logenabled!=null">
+				logEnabled like #{logenabled}
+			</if>
+			<if test="subject!=null">
+				subject like #{subject}
+			</if>
+			<if test="rolestobroadcast!=null">
+				rolesToBroadcast like #{rolestobroadcast}
+			</if>
+			<if test="usereservednick!=null">
+				useReservedNick like #{usereservednick}
+			</if>
+			<if test="canchangenick!=null">
+				canChangeNick like #{canchangenick}
+			</if>
+			<if test="canregister!=null">
+				canRegister like #{canregister}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbMucroom" parameterType="com.micro.msb.beans.MsbMucroomSearchBean" resultMap="msbMucroomResult">         
+		select * from msb_mucroom  
+		<where>
+			<if test="roomid!=null">
+				roomID like #{roomid}
+			</if>
+			<if test="serviceid!=null">
+				serviceID like #{serviceid}
+			</if>
+			<if test="creationdate!=null">
+				creationDate like #{creationdate}
+			</if>
+			<if test="modificationdate!=null">
+				modificationDate like #{modificationdate}
+			</if>
+			<if test="name!=null">
+				name like #{name}
+			</if>
+			<if test="naturalname!=null">
+				naturalName like #{naturalname}
+			</if>
+			<if test="description!=null">
+				description like #{description}
+			</if>
+			<if test="lockeddate!=null">
+				lockedDate like #{lockeddate}
+			</if>
+			<if test="emptydate!=null">
+				emptyDate like #{emptydate}
+			</if>
+			<if test="canchangesubject!=null">
+				canChangeSubject like #{canchangesubject}
+			</if>
+			<if test="maxusers!=null">
+				maxUsers like #{maxusers}
+			</if>
+			<if test="publicroom!=null">
+				publicRoom like #{publicroom}
+			</if>
+			<if test="moderated!=null">
+				moderated like #{moderated}
+			</if>
+			<if test="membersonly!=null">
+				membersOnly like #{membersonly}
+			</if>
+			<if test="caninvite!=null">
+				canInvite like #{caninvite}
+			</if>
+			<if test="roompassword!=null">
+				roomPassword like #{roompassword}
+			</if>
+			<if test="candiscoverjid!=null">
+				canDiscoverJID like #{candiscoverjid}
+			</if>
+			<if test="logenabled!=null">
+				logEnabled like #{logenabled}
+			</if>
+			<if test="subject!=null">
+				subject like #{subject}
+			</if>
+			<if test="rolestobroadcast!=null">
+				rolesToBroadcast like #{rolestobroadcast}
+			</if>
+			<if test="usereservednick!=null">
+				useReservedNick like #{usereservednick}
+			</if>
+			<if test="canchangenick!=null">
+				canChangeNick like #{canchangenick}
+			</if>
+			<if test="canregister!=null">
+				canRegister like #{canregister}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

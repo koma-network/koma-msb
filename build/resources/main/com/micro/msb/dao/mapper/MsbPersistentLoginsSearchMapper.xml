@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbPersistentLoginsResult" type="MsbPersistentLoginsBean">
+		<result property="username" column="username"/>
+		<result property="series" column="series"/>
+		<result property="token" column="token"/>
+		<result property="lastUsed" column="last_used"/>
+	</resultMap>
+
+	<select id="countMsbPersistentLoginsSearch" parameterType="com.micro.msb.beans.MsbPersistentLoginsSearchBean" resultType="Integer">
+		select count(*) from msb_persistent_logins
+		<where>
+			<if test="username!=null">
+				username like #{username}
+			</if>
+			<if test="series!=null">
+				series like #{series}
+			</if>
+			<if test="token!=null">
+				token like #{token}
+			</if>
+			<if test="lastUsed!=null">
+				last_used like #{lastUsed}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbPersistentLogins" parameterType="com.micro.msb.beans.MsbPersistentLoginsSearchBean" resultMap="msbPersistentLoginsResult">         
+		select * from msb_persistent_logins  
+		<where>
+			<if test="username!=null">
+				username like #{username}
+			</if>
+			<if test="series!=null">
+				series like #{series}
+			</if>
+			<if test="token!=null">
+				token like #{token}
+			</if>
+			<if test="lastUsed!=null">
+				last_used like #{lastUsed}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbPresenceWriteResult" type="MsbPresenceWriteBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="offlinepresence" column="offlinePresence"/>
+		<result property="offlinedate" column="offlineDate"/>
+	</resultMap>
+	
+	<update id="writeMsbPresence" parameterType="com.micro.msb.beans.MsbPresenceWriteBean">
+		update msb_presence set subscriber = #{subscriber},
+		offlinePresence = #{offlinepresence},
+		offlineDate = #{offlinedate} where subscriber = #{subscriber};
+	</update>
+
+</mapper>

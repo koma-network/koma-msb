@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbMucserviceReadResult" type="MsbMucserviceReadBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="domain" column="domain"/>
+		<result property="subdomain" column="subdomain"/>
+		<result property="description" column="description"/>
+		<result property="ishidden" column="isHidden"/>
+		<collection property="msbMucroom" column="serviceID" select="readMsbMucserviceMsbMucroom"/>
+		<collection property="msbMucserviceprop" column="serviceID" select="readMsbMucserviceMsbMucserviceprop"/>
+	</resultMap>
+	
+	<select id="readMsbMucservice" parameterType="com.micro.msb.beans.MsbMucserviceReadBean" resultMap="msbMucserviceReadResult">         
+		select * from msb_mucservice where serviceID = #{serviceid};
+	</select>
+
+	<select id="readMsbMucserviceMsbMucroom" parameterType="Long" resultMap="msbMucroomResult">         
+		select * from msb_mucroom where serviceID = #{serviceid};
+	</select>
+  
+	<select id="readMsbMucserviceMsbMucserviceprop" parameterType="Long" resultMap="msbMucservicepropResult">         
+		select * from msb_mucserviceprop where serviceID = #{serviceid};
+	</select>
+  
+</mapper>

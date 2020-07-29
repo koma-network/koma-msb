@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbSubscriberResult" type="MsbSubscriberBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="password" column="password"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="creationdate" column="creationDate"/>
+		<result property="modificationdate" column="modificationDate"/>
+		<result property="subtype" column="subtype"/>
+		<result property="account" column="account"/>
+		<result property="userkey" column="userKey"/>
+	</resultMap>
+
+	<select id="countMsbSubscriberSearch" parameterType="com.micro.msb.beans.MsbSubscriberSearchBean" resultType="Integer">
+		select count(*) from msb_subscriber
+		<where>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="password!=null">
+				password like #{password}
+			</if>
+			<if test="name!=null">
+				name like #{name}
+			</if>
+			<if test="email!=null">
+				email like #{email}
+			</if>
+			<if test="creationdate!=null">
+				creationDate like #{creationdate}
+			</if>
+			<if test="modificationdate!=null">
+				modificationDate like #{modificationdate}
+			</if>
+			<if test="subtype!=null">
+				subtype like #{subtype}
+			</if>
+			<if test="account!=null">
+				account like #{account}
+			</if>
+			<if test="userkey!=null">
+				userKey like #{userkey}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbSubscriber" parameterType="com.micro.msb.beans.MsbSubscriberSearchBean" resultMap="msbSubscriberResult">         
+		select * from msb_subscriber  
+		<where>
+			<if test="subscriber!=null">
+				subscriber like #{subscriber}
+			</if>
+			<if test="password!=null">
+				password like #{password}
+			</if>
+			<if test="name!=null">
+				name like #{name}
+			</if>
+			<if test="email!=null">
+				email like #{email}
+			</if>
+			<if test="creationdate!=null">
+				creationDate like #{creationdate}
+			</if>
+			<if test="modificationdate!=null">
+				modificationDate like #{modificationdate}
+			</if>
+			<if test="subtype!=null">
+				subtype like #{subtype}
+			</if>
+			<if test="account!=null">
+				account like #{account}
+			</if>
+			<if test="userkey!=null">
+				userKey like #{userkey}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

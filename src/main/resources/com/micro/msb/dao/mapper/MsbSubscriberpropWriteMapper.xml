@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbSubscriberpropWriteResult" type="MsbSubscriberpropWriteBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="name" column="name"/>
+		<result property="propvalue" column="propValue"/>
+	</resultMap>
+	
+	<update id="writeMsbSubscriberprop" parameterType="com.micro.msb.beans.MsbSubscriberpropWriteBean">
+		update msb_subscriberprop set subscriber = #{subscriber},
+		name = #{name},
+		propValue = #{propvalue} where subscriber = #{subscriber};
+	</update>
+
+</mapper>

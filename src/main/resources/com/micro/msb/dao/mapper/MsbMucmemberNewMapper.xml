@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbMucmemberNewResult" type="MsbMucmemberNewBean">
+		<result property="roomid" column="roomID"/>
+		<result property="jid" column="jid"/>
+		<result property="subscriber" column="subscriber"/>
+		<result property="nickname" column="nickname"/>
+		<result property="firstname" column="firstName"/>
+		<result property="lastname" column="lastName"/>
+		<result property="url" column="url"/>
+		<result property="email" column="email"/>
+		<result property="faqentry" column="faqentry"/>
+	</resultMap>
+	
+	<insert id="newMsbMucmember" parameterType="com.micro.msb.beans.MsbMucmemberNewBean">
+		insert into msb_mucmember(roomID,jid,subscriber,nickname,firstName,lastName,url,email,faqentry) 
+		values (#{roomid},#{jid},#{subscriber},#{nickname},#{firstname},#{lastname},#{url},#{email},#{faqentry});
+	</insert>
+
+</mapper>

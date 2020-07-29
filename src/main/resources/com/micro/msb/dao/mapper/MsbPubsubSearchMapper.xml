@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+	
+	<resultMap id="msbPubsubResult" type="MsbPubsubBean">
+		<result property="serviceid" column="serviceID"/>
+		<result property="protocol" column="protocol"/>
+		<result property="description" column="description"/>
+	</resultMap>
+
+	<select id="countMsbPubsubSearch" parameterType="com.micro.msb.beans.MsbPubsubSearchBean" resultType="Integer">
+		select count(*) from msb_pubsub
+		<where>
+			<if test="serviceid!=null">
+				serviceID like #{serviceid}
+			</if>
+			<if test="protocol!=null">
+				protocol like #{protocol}
+			</if>
+			<if test="description!=null">
+				description like #{description}
+			</if>
+		</where>		
+	</select>
+
+	<select id="searchMsbPubsub" parameterType="com.micro.msb.beans.MsbPubsubSearchBean" resultMap="msbPubsubResult">         
+		select * from msb_pubsub  
+		<where>
+			<if test="serviceid!=null">
+				serviceID like #{serviceid}
+			</if>
+			<if test="protocol!=null">
+				protocol like #{protocol}
+			</if>
+			<if test="description!=null">
+				description like #{description}
+			</if>
+		</where> limit 10 offset #{rowid}
+	</select>
+
+</mapper>

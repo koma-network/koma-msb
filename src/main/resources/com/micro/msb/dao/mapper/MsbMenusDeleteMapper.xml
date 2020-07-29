@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbMenusDeleteResult" type="MsbMenusDeleteBean">
+		<result property="name" column="name"/>
+		<result property="link" column="link"/>
+		<result property="display" column="display"/>
+	</resultMap>
+	
+	<delete id="deleteMsbMenus" parameterType="com.micro.msb.beans.MsbMenusDeleteBean">
+		delete from msb_menus where name = #{name};
+	</delete>
+
+</mapper>

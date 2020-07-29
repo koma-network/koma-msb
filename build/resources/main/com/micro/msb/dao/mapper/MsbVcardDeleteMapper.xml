@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.micro.msb.dao.mapper.DaoMapper">			
+		
+	<resultMap id="msbVcardDeleteResult" type="MsbVcardDeleteBean">
+		<result property="subscriber" column="subscriber"/>
+		<result property="vcard" column="vcard"/>
+	</resultMap>
+	
+	<delete id="deleteMsbVcard" parameterType="com.micro.msb.beans.MsbVcardDeleteBean">
+		delete from msb_vcard where subscriber = #{subscriber};
+	</delete>
+
+</mapper>
