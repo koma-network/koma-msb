@@ -7,16 +7,16 @@
 </div>
 <div class="Subhead">
   <div class="Subhead-heading">Base Functions</div>
-  <a>1. Reistration</a>
-  <a>2. Authentication</a>
-  <a>3. Roster & Subscription</a>
-  <a>4. Presence</a>
-  <a>5. Message</a>
-  <a>6. vCard</a>
-  <a>7. Disco Item</a>
-  <a>8. Disco Info</a>
-  <a>9. Offline Message</a>
-  <a>10. Proxy & Forward (Optional for MSB)</a>
+  <span>1. Reistration</span>
+  <span>2. Authentication</span>
+  <span>3. Roster & Subscription</span>
+  <span>4. Presence</span>
+  <span>5. Message</span>
+  <span>6. vCard</span>
+  <span>7. Disco Item</span>
+  <span>8. Disco Info</span>
+  <span>9. Offline Message</span>
+  <span>10. Proxy & Forward (Optional for MSB)</span>
 </div>
 <div class="Subhead">
   <div class="Subhead-heading">Requirement</div>
