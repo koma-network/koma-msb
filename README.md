@@ -27,7 +27,7 @@
   <div class="Subhead-description">5. Check & Change server.key in file koma-msb/src/main/resources/application.properties for Synch with other end point (Optional)</div>
 </div>
 <div class="Subhead">
-  <div class="Subhead-heading">Run</div>
+  <div class="Subhead-heading"><h3>Run</h3></div>
   <div class="Subhead-description"></div>
   <div class="Subhead-description">$java -jar koma-msb-1.0.1-RELEASE.jar</div>
 </div>
