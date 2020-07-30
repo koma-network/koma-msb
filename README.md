@@ -6,20 +6,20 @@
 <img style="padding:5px;background-color: #fff;border-radius: 5px;" src="https://user-images.githubusercontent.com/15040338/87261252-d5169700-c4df-11ea-8b65-a8a40024242b.JPG" width="75%">
 </div>
 <div class="Subhead">
-  <div class="Subhead-heading">Base Functions</div>
-  <span>1. Reistration</span>
-  <span>2. Authentication</span>
-  <span>3. Roster & Subscription</span>
-  <span>4. Presence</span>
-  <span>5. Message</span>
-  <span>6. vCard</span>
-  <span>7. Disco Item</span>
-  <span>8. Disco Info</span>
-  <span>9. Offline Message</span>
-  <span>10. Proxy & Forward (Optional for MSB)</span>
+  <div class="Subhead-heading"><h3>Base Functions</h3></div>
+  <div class="Subhead-description">1. Reistration</div>
+  <div class="Subhead-description">2. Authentication</div>
+  <div class="Subhead-description">3. Roster & Subscription</div>
+  <div class="Subhead-description">4. Presence</div>
+  <div class="Subhead-description">5. Message</div>
+  <div class="Subhead-description">6. vCard</div>
+  <div class="Subhead-description">7. Disco Item</div>
+  <div class="Subhead-description">8. Disco Info</div>
+  <div class="Subhead-description">9. Offline Message</div>
+  <div class="Subhead-description">10. Proxy & Forward (Optional for MSB)</div>
 </div>
 <div class="Subhead">
-  <div class="Subhead-heading">Requirement</div>
+  <div class="Subhead-heading"><h3>Requirement</h3></div>
   <p>1. Install MySQL Server and load file import.sql (for DB Simulation)</p>
   <p>2. Open and Build with Netbeans IDE 8.2</p>
   <p>3. Change configuration in file koma-msb/src/main/resources/application.properties for DB name</p>
