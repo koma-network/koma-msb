@@ -2,8 +2,10 @@
   <h2>KOMA MSB</h2>
   <p>This is the code for MSB Component, This code is implemented in XMPP or MSB Server varian</p>
 </div>
-<div class="box-shadow-medium p-3" style="padding:20px;>
+<div class="box-shadow-medium p-3">
+<table><tr><td>
 <img style="padding:5px;background-color: #fff;border-radius: 5px;" src="https://user-images.githubusercontent.com/15040338/87261252-d5169700-c4df-11ea-8b65-a8a40024242b.JPG" width="100%">
+</td></tr></table>
 </div>
 <div class="Subhead">
   <div class="Subhead-heading"><h3>Base Functions</h3></div>
