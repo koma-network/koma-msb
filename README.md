@@ -28,6 +28,5 @@
 </div>
 <div class="Subhead">
   <div class="Subhead-heading"><h3>Run</h3></div>
-  <div class="Subhead-description"></div>
   <div class="Subhead-description">$java -jar koma-msb-1.0.1-RELEASE.jar</div>
 </div>
