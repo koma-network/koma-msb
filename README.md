@@ -18,11 +18,14 @@ This is the code for MSB Component, This code is implemented in XMPP or MSB Serv
 - Disco Info
 - Offline Message
 - Proxy & Forward (Optional for MSB)
+<br>
 ## requirement
+<br>
 1. Install MySQL Server and load file import.sql (for DB Simulation) <br/>
 2. Open and Build with Netbeans IDE 8.2 <br/>
 3. Change configuration in file koma-msb/src/main/resources/application.properties for DB name <br/>
 4. Change configuration in file koma-msb/src/main/resources/application.properties for number of Instance <br/>
 5. Check & Change server.key in file koma-msb/src/main/resources/application.properties for Synch with other end point (Optional) <br/>
 ## run
+<br>
 $java -jar koma-msb-1.0.1-RELEASE.jar <br/>
