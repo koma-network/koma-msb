@@ -18,8 +18,7 @@
   <div class="Subhead-description">9. Offline Message</div>
   <div class="Subhead-description">10. Proxy & Forward (Optional for MSB)</div>
 </div>
-<br>
-<div class="Subhead">
+<div class="Subhead" Subhead--spacious">
   <div class="Subhead-heading"><h3>Requirement</h3></div>
   <div class="Subhead-description">1. Install MySQL Server and load file import.sql (for DB Simulation)</div>
   <div class="Subhead-description">2. Open and Build with Netbeans IDE 8.2</div>
@@ -27,8 +26,7 @@
   <div class="Subhead-description">4. Change configuration in file koma-msb/src/main/resources/application.properties for number of Instance</div>
   <div class="Subhead-description">5. Check & Change server.key in file koma-msb/src/main/resources/application.properties for Synch with other end point (Optional)</div>
 </div>
-<br>
-<div class="Subhead">
+<div class="Subhead" Subhead--spacious">
   <div class="Subhead-heading"><h3>Run</h3></div>
   <div class="Subhead-description">$java -jar koma-msb-1.0.1-RELEASE.jar</div>
 </div>
