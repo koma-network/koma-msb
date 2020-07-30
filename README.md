@@ -1,5 +1,7 @@
-# koma-msb
-This is the code for MSB Component, This code is implemented in XMPP or MSB Server varian <br>
+<div class="pagehead">
+  <h1>KOMA MSB</h1>
+  <p>This is the code for MSB Component, This code is implemented in XMPP or MSB Server varian</p>
+</div>
 <table>
 <tr>
 <td>
@@ -7,18 +9,20 @@ This is the code for MSB Component, This code is implemented in XMPP or MSB Serv
 </td>
 </tr>
 </table>
-<div class="pagehead">
-  <h1>Title</h1>
+<div class="Subhead">
+  <div class="Subhead-heading">Base Functions</div>
 </div>
-<div class="pagehead">
-  <ul class="pagehead-actions">
-    <li><button class="btn btn-sm" href="#url">Action</button></li>
-    <li><button class="btn btn-sm btn-primary" href="#url">Action</button></li>
-  </ul>
-  <h1>Title</h1>
+<div class="Subhead">
+  <div class="Subhead-heading">Requirement</div>
+  <p>1. Install MySQL Server and load file import.sql (for DB Simulation)</p>
+  <p>2. Open and Build with Netbeans IDE 8.2</p>
+  <p>3. Change configuration in file koma-msb/src/main/resources/application.properties for DB name</p>
+  <p>4. Change configuration in file koma-msb/src/main/resources/application.properties for number of Instance</p>
+  <p>5. Check & Change server.key in file koma-msb/src/main/resources/application.properties for Synch with other end point (Optional)</p>
 </div>
-<div class="pagehead">
-  <h1>Base Functions</h1>
+<div class="Subhead">
+  <div class="Subhead-heading">Run</div>
+  <p>$java -jar koma-msb-1.0.1-RELEASE.jar<p>
 </div>
 # base functions
 - Reistration
@@ -32,13 +36,3 @@ This is the code for MSB Component, This code is implemented in XMPP or MSB Serv
 - Offline Message
 - Proxy & Forward (Optional for MSB)
 <br>
-## requirement
-<br>
-1. Install MySQL Server and load file import.sql (for DB Simulation) <br/>
-2. Open and Build with Netbeans IDE 8.2 <br/>
-3. Change configuration in file koma-msb/src/main/resources/application.properties for DB name <br/>
-4. Change configuration in file koma-msb/src/main/resources/application.properties for number of Instance <br/>
-5. Check & Change server.key in file koma-msb/src/main/resources/application.properties for Synch with other end point (Optional) <br/>
-## run
-<br>
-$java -jar koma-msb-1.0.1-RELEASE.jar <br/>
