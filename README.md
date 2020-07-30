@@ -1,6 +1,5 @@
 # koma-msb
 This is the code for MSB Component, This code is implemented in XMPP or MSB Server varian <br>
-<br/>
 <table>
 <tr>
 <td>
@@ -8,8 +7,7 @@ This is the code for MSB Component, This code is implemented in XMPP or MSB Serv
 </td>
 </tr>
 </table>  
-<br/>
-# Base Functions :
+# base functions
 1. Reistration <br/>
 2. Authentication <br/>
 3. Roster & Subscription <br/>
@@ -20,16 +18,11 @@ This is the code for MSB Component, This code is implemented in XMPP or MSB Serv
 8. Disco Info <br/>
 9. Offline Message <br/>
 10. Proxy & Forward (Optional for MSB) <br/>
-<br/>
-# Requirement :
-<br/>
+# requirement :
 1. Install MySQL Server and load file import.sql (for DB Simulation) <br/>
 2. Open and Build with Netbeans IDE 8.2 <br/>
 3. Change configuration in file koma-msb/src/main/resources/application.properties for DB name <br/>
 4. Change configuration in file koma-msb/src/main/resources/application.properties for number of Instance <br/>
 5. Check & Change server.key in file koma-msb/src/main/resources/application.properties for Synch with other end point (Optional) <br/>
-<br/>
-# Run:
-<br/>
+# run:
 $java -jar koma-msb-1.0.1-RELEASE.jar <br/>
-<br/>
