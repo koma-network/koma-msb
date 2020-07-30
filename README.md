@@ -1,7 +1,7 @@
 # koma-msb
 This is the code for MSB Component, This code is implemented in XMPP or MSB Server varian <br>
 <br/>
-<img src="https://user-images.githubusercontent.com/15040338/87261252-d5169700-c4df-11ea-8b65-a8a40024242b.JPG" width="75%"></img>
+<img style="padding:5px;background-color: #fff;border-radius: 5px;" src="https://user-images.githubusercontent.com/15040338/87261252-d5169700-c4df-11ea-8b65-a8a40024242b.JPG" width="75%">
 <br/>
 Base Functions : <br/>
 1. Reistration <br/>
