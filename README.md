@@ -11,6 +11,16 @@
 </table>
 <div class="Subhead">
   <div class="Subhead-heading">Base Functions</div>
+  <p>1. Reistration</p>
+  <p>2. Authentication</p>
+  <p>3. Roster & Subscription</p>
+  <p>4. Presence</p>
+  <p>5. Message</p>
+  <p>6. vCard</p>
+  <p>7. Disco Item</p>
+  <p>8. Disco Info</p>
+  <p>9. Offline Message</p>
+  <p>10. Proxy & Forward (Optional for MSB)</p>
 </div>
 <div class="Subhead">
   <div class="Subhead-heading">Requirement</div>
@@ -24,15 +34,3 @@
   <div class="Subhead-heading">Run</div>
   <p>$java -jar koma-msb-1.0.1-RELEASE.jar<p>
 </div>
-# base functions
-- Reistration
-- Authentication
-- Roster & Subscription
-- Presence
-- Message
-- vCard
-- Disco Item
-- Disco Info
-- Offline Message
-- Proxy & Forward (Optional for MSB)
-<br>
