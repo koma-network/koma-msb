@@ -7,7 +7,20 @@ This is the code for MSB Component, This code is implemented in XMPP or MSB Serv
 </td>
 </tr>
 </table>
-## base functions
+<div class="pagehead">
+  <h1>Title</h1>
+</div>
+<div class="pagehead">
+  <ul class="pagehead-actions">
+    <li><button class="btn btn-sm" href="#url">Action</button></li>
+    <li><button class="btn btn-sm btn-primary" href="#url">Action</button></li>
+  </ul>
+  <h1>Title</h1>
+</div>
+<div class="pagehead">
+  <h1>Base Functions</h1>
+</div>
+# base functions
 - Reistration
 - Authentication
 - Roster & Subscription
