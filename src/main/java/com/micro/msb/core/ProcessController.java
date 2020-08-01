@@ -117,7 +117,8 @@ public class ProcessController {
             String sessionId = packet.getAuth().getAttr().getSession();
             String domain = packet.getAuth().getAttr().getDomain();
             String ip = packet.getAuth().getAttr().getIp();
-            String port = packet.getAuth().getAttr().getPort();            
+            String port = packet.getAuth().getAttr().getPort();
+            String protocol = packet.getAuth().getAttr().getProtocol();
             String subscriber = packet.getAuth().getAttr().getFrom();
             if(subscriber.contains("@")) subscriber = subscriber.substring(0,subscriber.indexOf("@"));
             
@@ -135,7 +136,7 @@ public class ProcessController {
                 session.setDomain(domain);
                 session.setIpaddress(ip);
                 session.setIpport(port);
-                session.setProtocol("tcp");
+                session.setProtocol(protocol);
                 session.setStarttime(Format.formatFileDate());
                 session.setPresence("unavailable");
                 session.setStatus("Offline");
@@ -169,6 +170,7 @@ public class ProcessController {
             String domain = packet.getResponse().getAttr().getDomain();
             String ip = packet.getResponse().getAttr().getIp();
             String port = packet.getResponse().getAttr().getPort();
+            String protocol = packet.getResponse().getAttr().getProtocol();
             String content = packet.getResponse().getContent();            
             byte[] response = Base64.decode(content);
             
@@ -193,7 +195,7 @@ public class ProcessController {
                     session.setDomain(domain);
                     session.setIpaddress(ip);
                     session.setIpport(port);
-                    session.setProtocol("tcp");
+                    session.setProtocol(protocol);
                     session.setStarttime(Format.formatFileDate());
                     session.setPresence("unavailable");
                     session.setStatus("Offline");
