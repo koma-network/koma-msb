@@ -285,7 +285,8 @@ public class ProcessThread extends Thread {
                  */
                 JSONObject roster = rosters.getJSONObject(i);
                 String rosterSessionId = roster.getString("sessionid");
-                String to = roster.getString("subscriber")+"@"+roster.getString("domain")+"/"+roster.getString("resource");
+                //String to = roster.getString("subscriber")+"@"+roster.getString("domain")+"/"+roster.getString("resource");
+                String to = roster.getString("subscriber")+"@"+roster.getString("domain");
                 String from = jsonObjOut.getString("subscriber")+"@"+jsonObjOut.getString("domain");
                 jsonObj.getJSONObject("presence").getJSONObject("attr").put("session",rosterSessionId);
                 jsonObj.getJSONObject("presence").getJSONObject("attr").put("to",to);
@@ -297,7 +298,8 @@ public class ProcessThread extends Thread {
                  * For Sender
                  */
                 if(type==null){
-                    from = roster.getString("subscriber")+"@"+roster.getString("domain")+"/"+roster.getString("resource");
+                    //from = roster.getString("subscriber")+"@"+roster.getString("domain")+"/"+roster.getString("resource");
+                    from = roster.getString("subscriber")+"@"+roster.getString("domain");
                     to = jsonObjOut.getString("subscriber")+"@"+jsonObjOut.getString("domain");
                     String status = roster.getString("status");
                     jsonObj.getJSONObject("presence").getJSONObject("attr").put("session",sessionId);
