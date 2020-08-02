@@ -2,7 +2,7 @@
  * Copyright   : KOMA-Network (Indonesia IoT Club)
  * Create by   : Yan Yan Purdiansah
  * Create date : 21/06/2020
- * Link        : https://github.com/yypurdi/koma-msb-core
+ * Link        : https://github.com/koma-network/koma-msb
  * Description : This is the MSB Connector for Authentication & Control Inter Domain in KOMA Network
  *               This module is implemented in MicroSB side for Public/Private Environment
  */
